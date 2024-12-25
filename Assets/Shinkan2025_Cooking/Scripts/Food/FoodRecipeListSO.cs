@@ -15,15 +15,14 @@ public class FoodRecipeListSO : ScriptableObject
 		bool isHit;
 	    foreach(FoodRecipeDataBaseSO recipe in RecipeList)
 		{
-			isHit = false;//n番目の要素はまだ見つかってない
+			
 			hitcount = 0;
 			//そもそも数が一致しないならパス
-			Debug.Log(foodList.Count);
-			Debug.Log(recipe.FoodRecipe.Count);
 			if(recipe.FoodRecipe.Count != foodList.Count)continue;
 			//基本は名前でサーチするがレシピに名前がないときFoodTypeで判定する
 			for(int i = 0;i<foodList.Count;i++)
 			{
+				isHit = false;//n番目の要素はまだ見つかってない
 				if(recipe.FoodRecipe[i].FoodName == "0")
 				{
 					//FoodTypeを複数持つ可能性あるんでforeach
