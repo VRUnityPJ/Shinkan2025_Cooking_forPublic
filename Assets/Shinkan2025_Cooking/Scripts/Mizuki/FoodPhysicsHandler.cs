@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class FoodPhysicsHandler : MonoBehaviour
+public class FoodPhysicsHandler : MonoBehaviour, IFoodPhysicsHandler
 {
     private Rigidbody _rb;
     private float foodLifeTime;
-    private float foodSpeed;
     private bool isStabbed = false;
 
     void Awake()
@@ -14,12 +13,11 @@ public class FoodPhysicsHandler : MonoBehaviour
 
     public void OnInstantiate(float foodSpeed, float foodLifeTime)
     {
-        this.foodSpeed = foodSpeed;
         this.foodLifeTime = foodLifeTime;
 
         if (_rb != null)
         {
-            _rb.velocity = transform.forward * this.foodSpeed;
+            _rb.AddForce(new Vector3(50, 50, 0) * foodSpeed);
         }
     }
 
