@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodName: TestBeef
   _foodAtribute: 00000000
-  _foodObject: {fileID: 0}
+  _foodObject: {fileID: 6847275003567602600, guid: afcc782481eaad44393b00d74155a8b0,
+    type: 3}
   _foodBasePoint: 100

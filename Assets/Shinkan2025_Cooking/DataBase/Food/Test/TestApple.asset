@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodName: TestApple
   _foodAtribute: 03000000
-  _foodObject: {fileID: 0}
+  _foodObject: {fileID: 4996349646453367176, guid: fe84182b81ad5df488b214446caf261c,
+    type: 3}
   _foodBasePoint: 10
