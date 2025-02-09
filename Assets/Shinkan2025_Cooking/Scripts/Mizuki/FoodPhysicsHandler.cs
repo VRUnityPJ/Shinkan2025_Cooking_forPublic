@@ -42,5 +42,6 @@ public class FoodPhysicsHandler : MonoBehaviour, IFoodPhysicsHandler
     public void OnStabbed()
     {
         isStabbed = true;
+        _rb.isKinematic = true;
     }
 }

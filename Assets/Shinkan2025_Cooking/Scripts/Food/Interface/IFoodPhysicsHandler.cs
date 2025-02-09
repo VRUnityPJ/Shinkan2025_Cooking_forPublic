@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IFoodPhysicsHandler
 {
     public void OnInstantiate(float foodSpeed, float foodLifeTime);
+    public void OnStabbed();
 }
