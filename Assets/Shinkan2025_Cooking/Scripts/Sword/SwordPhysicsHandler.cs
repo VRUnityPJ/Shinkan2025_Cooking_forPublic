@@ -16,22 +16,21 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
 
     void Start()
     {
-        _collider.isTrigger = false;
+        
         TryGetComponent(out _rigidbody);
         TryGetComponent(out _swordSpawner);
-        // TryGetComponent(out _collider);
-
+        TryGetComponent(out _collider);
+        _collider.isTrigger = true;
         SwordSetting();
     }
 
    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("あああああああああああああ");
         //foodクラスがないので仮で物理のやつを取得してどうにかする
         if (!other.gameObject.TryGetComponent(out IFoodPhysicsHandler foodPhysicsHandler)) return;
+        other.gameObject.TryGetComponent(out Food food);
         //仮でX
-        _isStabbed.OnNext(Unit.Default);
-        //_swordTracker.OnStabbed("x",other.gameObject);
+        _swordTracker.OnStabbed(food.GetName(),other.gameObject);
         foodPhysicsHandler.OnStabbed();
     }
 

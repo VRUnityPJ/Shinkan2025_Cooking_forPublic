@@ -10,4 +10,8 @@ public class Food : MonoBehaviour
     {
         return foodDataBaseSO.FoodName;
     }
+    public FoodDataBaseSO GetDataBase()
+    {
+        return foodDataBaseSO;
+    }
 }

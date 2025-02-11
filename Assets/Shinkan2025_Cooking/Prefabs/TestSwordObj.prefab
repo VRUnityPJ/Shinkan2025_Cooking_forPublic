@@ -228,3 +228,5 @@ MonoBehaviour:
   - {fileID: 3648873158368999114}
   - {fileID: 7703961289299832968}
   - {fileID: 885145683608128958}
+  foodObjectListSO: {fileID: 11400000, guid: 6fa127908a8f6dd43a8a511aef75ca2c, type: 2}
+  foodRecipeListSO: {fileID: 11400000, guid: 3725919a2df60cf488b81c947ea90306, type: 2}

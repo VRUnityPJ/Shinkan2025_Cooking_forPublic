@@ -10,8 +10,8 @@ public class FoodObjectListSO : ScriptableObject
     {
         foreach (var foodObj in foodList)
         {
-            foodObj.TryGetComponent<FoodDataBaseSO>(out var database);
-
+            foodObj.TryGetComponent<Food>(out var food);
+            var database = food.GetDataBase();
             if(database.FoodName == name)return database;
         }
         return null;

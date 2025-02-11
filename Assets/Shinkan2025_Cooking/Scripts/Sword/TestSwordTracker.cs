@@ -9,14 +9,12 @@ public class TestSwordTracker : MonoBehaviour,ISwordTracker
     // Start is called before the first frame update
     List<string> FoodChildrenName=new();
     [SerializeField]List<GameObject> FoodParentPoint = new();
+    [SerializeField]FoodObjectListSO foodObjectListSO;
+    [SerializeField]FoodRecipeListSO foodRecipeListSO;
     int FoodCounter = 0;
     const int MaxFoodCounter = 3;
     private readonly Subject<Unit> _swordFullStabbEvent = new();
     public IObservable<Unit> SwordFullStabbEvent => _swordFullStabbEvent;
-    void Start()
-    {
-        
-    }
     public void OnStabbed(string name,GameObject foodObj)
     {
         FoodChildrenName.Add(name);
@@ -27,6 +25,13 @@ public class TestSwordTracker : MonoBehaviour,ISwordTracker
         if(FoodCounter==MaxFoodCounter)
         {
             Debug.Log("Full");
+            List<FoodDataBaseSO> recipe = new();
+            foreach (var foodname in FoodChildrenName)
+            {
+                recipe.Add(foodObjectListSO.GetFoodData(foodname));
+            }
+            var hitrecipe = foodRecipeListSO.GetRecipefromFoodData(recipe);
+            Debug.Log(hitrecipe.FoodRecipeName);
             _swordFullStabbEvent.OnNext(Unit.Default);
             TestDestroy(this.transform);
         }
