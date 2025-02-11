@@ -307,8 +307,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 1808870646075169582, guid: b689fc35810a2b94c811e3a5a04e06dc,
-    type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 423124860}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -585,10 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d814c79e8709484db4ef7069b45a452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodList:
-  - {fileID: 11400000, guid: 8d4fc07eb3b6483478e30527c3636a37, type: 2}
-  - {fileID: 11400000, guid: af35bc605796f08458329897c53448f9, type: 2}
-  - {fileID: 11400000, guid: d0ebb12ce2c22cd40aa29688088271a0, type: 2}
+  foodObjList: {fileID: 11400000, guid: 6fa127908a8f6dd43a8a511aef75ca2c, type: 2}
   foodLifeTime: 10
   foodSpeed: 5
 --- !u!4 &621479432

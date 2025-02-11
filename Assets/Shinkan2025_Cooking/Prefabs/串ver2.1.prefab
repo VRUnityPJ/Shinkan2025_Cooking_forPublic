@@ -421,7 +421,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ebcb327ad5198734fba5d3a7a57e5fa3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3188427022283599617}
+      addedObject: {fileID: 6140003142641861670}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ebcb327ad5198734fba5d3a7a57e5fa3,
         type: 3}
       insertIndex: -1
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418a2cffb576b16489a3962d7375c576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3188427022283599617
+--- !u!114 &6140003142641861670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -454,13 +454,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1320037274775273876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4d51cddd8173c4e9d96e589c40dadc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6702a4836c4a0a041b76e9342edda2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FoodParentPoint:
   - {fileID: 4121068831217374808}
   - {fileID: 1322187025794246873}
   - {fileID: 5215733557686329070}
+  foodObjectListSO: {fileID: 11400000, guid: 6fa127908a8f6dd43a8a511aef75ca2c, type: 2}
+  foodRecipeListSO: {fileID: 11400000, guid: 3725919a2df60cf488b81c947ea90306, type: 2}
 --- !u!136 &5862634672306918996
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -480,7 +482,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.000004
+  m_Radius: 1.01
   m_Height: 2.14
   m_Direction: 1
   m_Center: {x: 0, y: -0.00000014901161, z: 5.684342e-13}

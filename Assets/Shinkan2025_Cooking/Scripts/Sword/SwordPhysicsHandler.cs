@@ -16,12 +16,12 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
 
     void Start()
     {
-        
         TryGetComponent(out _rigidbody);
         TryGetComponent(out _swordSpawner);
         TryGetComponent(out _collider);
+        TryGetComponent(out _swordTracker);
         _collider.isTrigger = true;
-        SwordSetting();
+        //SwordSetting();
     }
 
    private void OnTriggerEnter(Collider other)
@@ -37,7 +37,7 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
     private void OnFullStabbedSword()
     {
         // _swordTracker.TestDestroy();
-        SwordSetting();
+        //SwordSetting();
     }
     private void SwordSetting()
     {
