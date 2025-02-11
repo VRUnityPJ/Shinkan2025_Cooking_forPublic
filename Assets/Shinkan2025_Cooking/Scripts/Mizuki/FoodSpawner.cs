@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
 {
-    [SerializeField] private List<FoodDataBaseSO> foodList;
+    [SerializeField] private FoodObjectListSO foodObjList;
     private GameObject food;
     public float foodLifeTime = 10.0f;
     private float time = 0.0f;
     private float nextFoodSpawnTime = 5.0f;
     [SerializeField] private float foodSpeed = 5.0f;
 
-    // ƒXƒ|[ƒ“ƒ|ƒCƒ“ƒg‚ğŠi”[‚·‚é”z—ñ
+    // ï¿½Xï¿½|ï¿½[ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
     private Transform[] spawnPoints;
 
     void Start()
     {
-        // ŠJn‚ÉqƒIƒuƒWƒFƒNƒg‚ÌƒXƒ|[ƒ“ƒ|ƒCƒ“ƒg‚ğæ“¾
+        // ï¿½Jï¿½nï¿½ï¿½ï¿½Éqï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ÌƒXï¿½|ï¿½[ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾
         spawnPoints = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -36,7 +36,7 @@ public class FoodSpawner : MonoBehaviour
 
     private void InstantiateFood()
     {
-        // ƒ‰ƒ“ƒ_ƒ€‚ÈƒXƒ|[ƒ“ƒ|ƒCƒ“ƒg‚ğ‘I‘ğ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÈƒXï¿½|ï¿½[ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½Iï¿½ï¿½
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         GameObject spawnedFood = Instantiate(food, randomSpawnPoint.position, Quaternion.identity);
@@ -48,7 +48,7 @@ public class FoodSpawner : MonoBehaviour
     {
         nextFoodSpawnTime = Random.Range(1.0f, 5.0f);
         foodSpeed = Random.Range(5.0f, 10.0f);
-        int index = Random.Range(0, foodList.Count);
-        food = foodList[index].FoodObject;
+        int index = Random.Range(0, foodObjList.foodList.Count);
+        food = foodObjList.foodList[index];
     }
 }

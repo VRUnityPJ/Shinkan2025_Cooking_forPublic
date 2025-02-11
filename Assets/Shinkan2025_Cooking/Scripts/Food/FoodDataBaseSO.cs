@@ -22,12 +22,6 @@ public class FoodDataBaseSO : ScriptableObject
     /// <summary>
     /// Foodの名前
     /// </summary>
-    [SerializeField]private GameObject _foodObject;
-    
-    public GameObject FoodObject{get => _foodObject;}
-    /// <summary>
-    /// Foodの名前
-    /// </summary>
     [SerializeField]private int _foodBasePoint;
     
     public int FoodBasePoint{get => _foodBasePoint;}
