@@ -7,7 +7,7 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
 {
     // Start is called before the first frame update
     private Rigidbody _rigidbody;
-    private ISwordSpawner _swordSpawner;
+    private ISwordSpawnable _swordSpawner;
     private ISwordTracker _swordTracker;
     private Collider _collider;
     void Start()
@@ -36,6 +36,7 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
     }
     private void SwordSetting()
     {
+        Debug.Log("swordSetting");
         _swordTracker = _swordSpawner.InstiniateSword();
         _swordTracker.SwordFullStabbEvent
             .Subscribe(inputValue => OnFullStabbedSword())
