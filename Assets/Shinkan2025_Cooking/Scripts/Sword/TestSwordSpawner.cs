@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestSwordSpawner : MonoBehaviour,ISwordSpawner
+public class TestSwordSpawner : MonoBehaviour,ISwordSpawnable
 {
     [SerializeField]private GameObject sword;
 
