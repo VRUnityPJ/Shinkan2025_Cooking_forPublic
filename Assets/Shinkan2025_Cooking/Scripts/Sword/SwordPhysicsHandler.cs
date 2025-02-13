@@ -3,48 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using System;
+using System.Linq;
 
 public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
 {
-    private Rigidbody _rigidbody;
-    private ISwordSpawnable _swordSpawner;
-    private ISwordTracker _swordTracker;
-    private Collider _collider;
-    private readonly Subject<Unit> _isStabbed = new();
+    [SerializeField] private List<GameObject> _foodParentPoint;
+    [SerializeField] GameObject _parentSword;
 
+    private Rigidbody _rigidbody;
+    private Collider _collider;
+    private string _foodName;
+    private readonly Subject<Unit> _isStabbed = new();
     public IObservable<Unit> IsStabbed => _isStabbed;
+    public string FoodName => _foodName;
 
     void Start()
     {
         TryGetComponent(out _rigidbody);
-        TryGetComponent(out _swordSpawner);
         TryGetComponent(out _collider);
-        TryGetComponent(out _swordTracker);
-        _collider.isTrigger = true;
-        //SwordSetting();
+
     }
 
-   private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        //foodクラスがないので仮で物理のやつを取得してどうにかする
         if (!other.gameObject.TryGetComponent(out IFoodPhysicsHandler foodPhysicsHandler)) return;
         other.gameObject.TryGetComponent(out Food food);
-        //仮でX
-        _swordTracker.OnStabbed(food.GetName(),other.gameObject);
         foodPhysicsHandler.OnStabbed();
+        OnStabbed(food.GetName(), other.gameObject);
+
     }
 
-    private void OnFullStabbedSword()
+    public void OnStabbed(string name, GameObject foodObj)
     {
-        // _swordTracker.TestDestroy();
-        //SwordSetting();
+        _foodName = name;
+        for (int i = 0; i < _foodParentPoint.Count; i++)
+        {
+            if (_foodParentPoint[i].transform.childCount==0)
+            {
+                Debug.Log($"要素数{i}");
+                foodObj.transform.parent = _foodParentPoint[i].transform;
+                foodObj.transform.position = _foodParentPoint[i].transform.position;
+
+                //刺さる食材の大きさを適切なサイズに変更
+                var localScale = foodObj.transform.localScale;
+                var parentLossyScale = _foodParentPoint[i].transform.localScale;
+                Debug.Log($"{new Vector3(parentLossyScale.x, parentLossyScale.y, parentLossyScale.z)}だよ");
+
+                foodObj.transform.localScale
+                    = new Vector3(parentLossyScale.x * 15, parentLossyScale.y * 15, parentLossyScale.z * 15);
+
+                _isStabbed.OnNext(Unit.Default);
+
+                break;
+            }
+        }
     }
-    private void SwordSetting()
+
+    public void OnCompletedFood()
     {
-        Debug.Log("swordSetting");
-        _swordTracker = _swordSpawner.InstiniateSword();
-        _swordTracker.SwordFullStabbEvent
-            .Subscribe(inputValue => OnFullStabbedSword())
-            .AddTo(this);
+        Debug.Log("串が完成した！");
+        _isStabbed.OnCompleted();
+        _isStabbed.Dispose();
+        _parentSword.SetActive(false);
+        //Destroy(_parentSword);
     }
 }

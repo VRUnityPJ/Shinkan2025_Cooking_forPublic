@@ -50,4 +50,9 @@ public class TestSwordTracker : MonoBehaviour,ISwordTracker
         }
         Destroy(this.gameObject);
     }
+
+    public void SubScribeFoodName(ISwordPhysicsHandler swordPhysicsHandler)
+    {
+        throw new NotImplementedException();
+    }
 }
