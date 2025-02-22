@@ -28,9 +28,8 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
     {
         if (!other.gameObject.TryGetComponent(out IFoodPhysicsHandler foodPhysicsHandler)) return;
         other.gameObject.TryGetComponent(out Food food);
-        foodPhysicsHandler.OnStabbed();
+        if(foodPhysicsHandler.OnStabbed()!=1)return;
         OnStabbed(food.GetName(), other.gameObject);
-
     }
 
     public void OnStabbed(string name, GameObject foodObj)
@@ -47,15 +46,16 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
                 //刺さる食材の大きさを適切なサイズに変更
                 var localScale = foodObj.transform.localScale;
                 var parentLossyScale = _foodParentPoint[i].transform.localScale;
-                Debug.Log($"{new Vector3(parentLossyScale.x, parentLossyScale.y, parentLossyScale.z)}だよ");
+                Debug.Log($"{new Vector3(parentLossyScale.x, parentLossyScale.y, parentLossyScale.z)}だよ"+i);
 
                 foodObj.transform.localScale
                     = new Vector3(parentLossyScale.x * 15, parentLossyScale.y * 15, parentLossyScale.z * 15);
 
                 _isStabbed.OnNext(Unit.Default);
 
-                break;
+                return;
             }
+            Debug.Log("枠なし");
         }
     }
 

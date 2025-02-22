@@ -5,6 +5,7 @@ public class FoodPhysicsHandler : MonoBehaviour, IFoodPhysicsHandler
     private Rigidbody _rb;
     private float foodLifeTime;
     private bool isStabbed = false;
+    private int stabCount = 0;
 
     void Awake()
     {
@@ -39,9 +40,11 @@ public class FoodPhysicsHandler : MonoBehaviour, IFoodPhysicsHandler
         Destroy(gameObject);
     }
 
-    public void OnStabbed()
+    public int OnStabbed()
     {
+        stabCount++;
         isStabbed = true;
         _rb.isKinematic = true;
+        return stabCount;
     }
 }

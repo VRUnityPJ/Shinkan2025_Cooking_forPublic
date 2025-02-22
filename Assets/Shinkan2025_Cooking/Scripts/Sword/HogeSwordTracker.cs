@@ -11,19 +11,23 @@ public class HogeSwordTracker : MonoBehaviour, ISwordTracker
     [SerializeField] FoodRecipeListSO _foodRecipeListSO;
 
     private List<string> _foodChildrenName = new();
+    private List<List<string>> _recipeNameList = new();
+    private int count = 0;
     private const int MaxFoodCounter = 3;
     private readonly Subject<Unit> _swordFullStabbEvent = new();
     public IObservable<Unit> SwordFullStabbEvent => _swordFullStabbEvent;
     public void SubScribeFoodName(ISwordPhysicsHandler swordPhysicsHandler)
     {
          swordPhysicsHandler.IsStabbed
+            // .Skip(1)
             .Subscribe(x =>
             {
+                count++;
                 var name = swordPhysicsHandler.FoodName;
                 _foodChildrenName.Add(name);
-                Debug.Log($"name={name}");
+                Debug.Log($"name={name}"+count);
 
-                if (_foodChildrenName.Count == MaxFoodCounter)
+                if (count >= MaxFoodCounter)
                 {
                     Debug.Log("Full");
                     List<FoodDataBaseSO> recipe = new();
@@ -35,9 +39,14 @@ public class HogeSwordTracker : MonoBehaviour, ISwordTracker
 
                     var hitrecipe = _foodRecipeListSO.GetRecipefromFoodData(recipe);
                     Debug.Log(hitrecipe.FoodRecipeName);
-                    _swordFullStabbEvent.OnNext(Unit.Default);
+                    
 
-                    swordPhysicsHandler.OnCompletedFood();            
+                    swordPhysicsHandler.OnCompletedFood();    
+                    _swordFullStabbEvent.OnNext(Unit.Default);
+                    //ここで名前のリストを保存 
+                    _recipeNameList.Add(_foodChildrenName);
+                    _foodChildrenName.Clear();   
+                    count = 0;
                 }
             })
             .AddTo(this);
