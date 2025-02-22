@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using System;
+using Shinkan2025_Cooking.Scripts.Points;
 
 public class TestSwordTracker : MonoBehaviour,ISwordTracker
 {
@@ -25,13 +26,8 @@ public class TestSwordTracker : MonoBehaviour,ISwordTracker
         if(FoodCounter==MaxFoodCounter)
         {
             Debug.Log("Full");
-            List<FoodDataBaseSO> recipe = new();
-            foreach (var foodname in FoodChildrenName)
-            {
-                recipe.Add(foodObjectListSO.GetFoodData(foodname));
-            }
-            var hitrecipe = foodRecipeListSO.GetRecipefromFoodData(recipe);
-            Debug.Log(hitrecipe.FoodRecipeName);
+            RecipeChecker.Instance?.RecipeCheck(FoodChildrenName);
+            FoodChildrenName.Clear();
             _swordFullStabbEvent.OnNext(Unit.Default);
             TestDestroy(this.transform);
         }
