@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Ranking Element
   m_EditorClassIdentifier: 
   typeData:
-  - className: 
-    what_is_this: 
+  - className: Ranking.Scripts.Score
+    what_is_this: "\u30B2\u30FC\u30E0\u306E\u30B9\u30B3\u30A2\u30AF\u30E9\u30B9"
+  - className: Ranking.Scripts.PlayerName
+    what_is_this: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u540D\u524D\u306E\u30AF\u30E9\u30B9"

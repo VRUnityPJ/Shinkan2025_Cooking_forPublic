@@ -43,7 +43,6 @@ namespace Shinkan2025_Cooking.Scripts.Points
             var hitrecipe = foodRecipeListSO.GetRecipefromFoodData(recipe);
             Debug.Log(hitrecipe.FoodRecipeName);
             _recipePoint += hitrecipe.RecipePoint;
-
             PointHolder.Instance?.UpPoint(_recipePoint);
         }
 
