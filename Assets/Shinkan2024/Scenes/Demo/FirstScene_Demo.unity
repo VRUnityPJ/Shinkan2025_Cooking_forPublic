@@ -952,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d700fad37ddac804d830df57a6f7918c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: GameOverTest
+  _sceneName: SampleScene
 --- !u!1 &140501656
 GameObject:
   m_ObjectHideFlags: 0
