@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Shinkan2024/Scenes/Demo/FirstScene_Demo.unity
-    guid: 989db0b8dfe4eac49ab01eb8dd701c2e
+    path: Assets/Scenes/ShojiScene.unity
+    guid: 96daf7e9e35724c4e9b51a116a3bda1d
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: aac85e27274aa4aaf99667939ee93efb,
       type: 2}

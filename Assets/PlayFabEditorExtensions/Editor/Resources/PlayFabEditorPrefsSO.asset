@@ -15,6 +15,7 @@ MonoBehaviour:
   DevAccountEmail: unithimai0702@gmail.com
   DevAccountToken: jbacxagu5xzogpcc48ddkp5xkrxj5whhn4qn3h1qcbws87gwytd3iszao4dhta5a195s8q95ko31pqispbbjigyhhzr9p31nc8gd3agqu71mdsgjcue6t5c1bgtdk49q8uiiqum93tk8opo4wgpa6qgbu5bk6fwofo9t95rxycs8gma1gnf94n7n55ro4mi3mnb4shsu
   SelectedStudio: My Game Studio
+
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 

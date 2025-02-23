@@ -4,14 +4,11 @@ using UnityEngine;
 using UniRx;
 using System;
 using Cysharp.Threading.Tasks;
-
+using Shinkan2025_Cooking.Scripts.Points;
 public class HogeSwordTracker : MonoBehaviour, ISwordTracker
 {
-    [SerializeField] FoodObjectListSO _foodObjectListSO;
-    [SerializeField] FoodRecipeListSO _foodRecipeListSO;
 
     private List<string> _foodChildrenName = new();
-    private List<List<string>> _recipeNameList = new();
     private int count = 0;
     private const int MaxFoodCounter = 3;
     private readonly Subject<Unit> _swordFullStabbEvent = new();
@@ -29,22 +26,10 @@ public class HogeSwordTracker : MonoBehaviour, ISwordTracker
 
                 if (count >= MaxFoodCounter)
                 {
-                    Debug.Log("Full");
-                    List<FoodDataBaseSO> recipe = new();
-
-                    foreach (var foodname in _foodChildrenName)
-                    {
-                        recipe.Add(_foodObjectListSO.GetFoodData(foodname));
-                    }
-
-                    var hitrecipe = _foodRecipeListSO.GetRecipefromFoodData(recipe);
-                    Debug.Log(hitrecipe.FoodRecipeName);
-                    
+                    RecipeChecker.Instance?.RecipeCheck(_foodChildrenName);
 
                     swordPhysicsHandler.OnCompletedFood();    
                     _swordFullStabbEvent.OnNext(Unit.Default);
-                    //ここで名前のリストを保存 
-                    _recipeNameList.Add(_foodChildrenName);
                     _foodChildrenName.Clear();   
                     count = 0;
                 }
