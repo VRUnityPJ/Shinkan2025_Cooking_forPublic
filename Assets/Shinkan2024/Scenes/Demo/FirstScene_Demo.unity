@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28275096, g: 0.5708151, b: 0.7949591, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -962,7 +962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 140501658}
-  - component: {fileID: 140501657}
+  - component: {fileID: 140501659}
   m_Layer: 0
   m_Name: RankingStorage
   m_TagString: Untagged
@@ -970,21 +970,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &140501657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140501656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24fdc16238c644168f41f495c22f17b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initializeSceneNames:
-  - FirstScene_Demo
-  _database: {fileID: 11400000, guid: 6ba2e688e44d377469ddcf064a98f19d, type: 2}
 --- !u!4 &140501658
 Transform:
   m_ObjectHideFlags: 0
@@ -1000,6 +985,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140501659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140501656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b7308f000e5b940aa71e815e57f252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initializeSceneNames:
+  - FirstScene_Demo
+  _database: {fileID: 11400000, guid: 912b7354008c705428b770710cee8d2b, type: 2}
 --- !u!1 &163242350
 GameObject:
   m_ObjectHideFlags: 0
