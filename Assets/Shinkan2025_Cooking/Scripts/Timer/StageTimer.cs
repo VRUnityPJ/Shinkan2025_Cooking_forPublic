@@ -19,6 +19,7 @@ namespace Shinkan2025_Cooking.Scripts.Timer
         private void Start()
         {
             _token = this.GetCancellationTokenOnDestroy();
+            StartTimer();
 
         }
 
