@@ -19,8 +19,6 @@ namespace Shinkan2025_Cooking.Scripts.Timer
         private void Start()
         {
             _token = this.GetCancellationTokenOnDestroy();
-            StartTimer();
-
         }
 
         [ContextMenu("StartTimer")]
@@ -32,7 +30,7 @@ namespace Shinkan2025_Cooking.Scripts.Timer
         public async void StartTimerAsync(CancellationToken token)
         {
             _onTimerStart.OnNext(_time);
-            await UniTask.Delay(TimeSpan.FromSeconds(_time), cancellationToken: _token);
+            await UniTask.Delay(TimeSpan.FromSeconds(_time), cancellationToken: token);
             _timeUpEvent.Invoke();
             Debug.Log("timeゲーム終了");
         }

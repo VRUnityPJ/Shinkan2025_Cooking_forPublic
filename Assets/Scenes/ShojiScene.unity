@@ -1029,7 +1029,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 30672752}
-  - {fileID: 1790198480}
   - {fileID: 1177680467}
   - {fileID: 1300648739}
   - {fileID: 1483947557}
@@ -2220,7 +2219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d700fad37ddac804d830df57a6f7918c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: 
+  _sceneName: SampleScene
 --- !u!1 &938857092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,10 +2906,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e0a402f434b4c578ffd5a52e3a7c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 120
+  _time: 5
   _timeUpEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 548942691}
+        m_TargetAssemblyTypeName: DemoGameEnd, Assembly-CSharp
+        m_MethodName: FinishGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1300648737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3079,7 +3090,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1790198480}
   m_Father: {fileID: 548942687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1483947558
@@ -3244,7 +3256,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 548942687}
+  m_Father: {fileID: 1483947557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006789528
 GameObject:
