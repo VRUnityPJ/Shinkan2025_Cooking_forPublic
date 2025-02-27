@@ -7,14 +7,25 @@ using VContainer.Unity;
 
 public class GameLifeTimeScope : LifetimeScope
 {
+    [SerializeField] private GameProgress _gameProgress;
+
     protected override void Configure(IContainerBuilder builder)
     {
-        //�܂�IGameEndIndicatable�̎����悪���܂��Ă��Ȃ��̂ŃR�����g�A�E�g
-        //RegisterComponent<T>(builder);
+        RegisterCompenentInHierarchy<DemoGameEnd>(builder);
+
+        //Inject先のクラスのインスタンス登録
+        builder.RegisterComponent(_gameProgress);
     }
 
-    private void RegisterComponent<T>(IContainerBuilder builder) where T : MonoBehaviour, IGameEndIndicatable
+    /// <summary>
+    /// IGameEndIndicatableがどのクラスで実装するか未定のため、
+    /// どのクラスでも対応できるようにジェネリックにしてある
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="builder"></param>
+    private void RegisterCompenentInHierarchy<T>(IContainerBuilder builder) where T : MonoBehaviour, IGameEndIndicatable
     {
-        builder.RegisterComponentInHierarchy<T>().As<IGameEndIndicatable>();
+        builder.RegisterComponentInHierarchy<T>()
+          .As<IGameEndIndicatable>();
     }
 }

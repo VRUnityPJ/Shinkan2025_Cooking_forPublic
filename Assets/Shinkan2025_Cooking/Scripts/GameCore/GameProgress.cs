@@ -4,30 +4,40 @@ using Shinkan2025_Cooking.Scripts.Timer;
 using UnityEngine;
 using UniRx;
 using VContainer;
+using VContainer.Unity;
 
 /// <summary>
-/// ƒQ[ƒ€is‚ğŠÇ—‚·‚éƒNƒ‰ƒXB‚±‚±‚ÅƒV[ƒ“ˆÚs‚È‚ÇŒÄ‚Ño‚·B
+/// ?Q?[???i?s???????????N???X?B???????V?[?????s?????????o???B
 /// </summary>
 public class GameProgress : MonoBehaviour
 {
     [SerializeField] StageTimer _stageTimer;
     [SerializeField] SceneSwitch _sceneSwitch;
 
-    [Inject] private IGameEndIndicatable _gameEndIndicatable;
+    private IGameEndIndicatable _gameEndIndicatable;
 
+    [Inject]
+    public void Inject(IGameEndIndicatable gameEndIndicatable)
+    {
+        _gameEndIndicatable = gameEndIndicatable;
+    }
     /// <summary>
-    /// ƒV[ƒ“ˆÚsŒã‚ÉÅ‰‚ÉŒÄ‚Ño‚·ŠÖ”
-    /// ŠeƒNƒ‰ƒX‚Ì‰Šú‰»‚ğ‚Ü‚Æ‚ß‚Äs‚¤
+    /// ?V?[?????s???????????????o??????
+    /// ?e?N???X???????????????????s??
     /// </summary>
 
     [ContextMenu("GameStart")]
     public void SetUpGameProgress()
     {
-        Debug.Log("ƒQ[ƒ€ŠJn");
+        Debug.Log("?Q?[???J?n");
         _stageTimer.StartTimer();
-
-        //ƒQ[ƒ€I—¹‚Ì’Ê’m‚ğw“Ç‚µ‚ÄƒQ[ƒ€I—¹ˆ—‚ğŒÄ‚Ño‚·
-        if (_gameEndIndicatable == null) return;
+        Debug.Log($"{_gameEndIndicatable}ã§ã™");
+        //?Q?[???I???????m???w???????Q?[???I?????????????o??
+        if (_gameEndIndicatable == null)
+        {
+            Debug.Log("IGameEndIndicatableãŒnullã§ã™");
+            return;
+        }
 
         _gameEndIndicatable.OnGameEnd
             .Subscribe(_ =>
@@ -38,10 +48,11 @@ public class GameProgress : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒQ[ƒ€I—¹‚ÉŒÄ‚Ño‚·ŠÖ”
+    /// ?Q?[???I???????????o??????
     /// </summary>
     public void ExitGame()
     {
+        Debug.Log("????Scene?");
         _sceneSwitch.SwitchScene();
     }
 }
