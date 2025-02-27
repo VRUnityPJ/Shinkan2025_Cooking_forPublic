@@ -10,12 +10,10 @@ public class FoodSpawner : MonoBehaviour
     private float nextFoodSpawnTime = 5.0f;
     [SerializeField] private float foodSpeed = 5.0f;
 
-    // �X�|�[���|�C���g���i�[����z��
     private Transform[] spawnPoints;
 
     void Start()
     {
-        // �J�n���Ɏq�I�u�W�F�N�g�̃X�|�[���|�C���g���擾
         spawnPoints = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {

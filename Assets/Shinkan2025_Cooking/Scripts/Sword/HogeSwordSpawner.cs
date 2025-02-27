@@ -16,7 +16,6 @@ public class HogeSwordSpawner : MonoBehaviour
     }
     public void InstiniateSword()
     {
-        Debug.Log("ã¯ê∂ê¨");
         var sword = Instantiate(_swordPrefab, _rightControllerPos);
         TryGetComponent<ISwordTracker>(out var swordTracker);
         var py =sword.GetComponentInChildren<ISwordPhysicsHandler>();
