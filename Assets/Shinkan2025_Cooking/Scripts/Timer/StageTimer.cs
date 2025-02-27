@@ -34,7 +34,7 @@ namespace Shinkan2025_Cooking.Scripts.Timer
             _onTimerStart.OnNext(_time);
             await UniTask.Delay(TimeSpan.FromSeconds(_time), cancellationToken: _token);
             _timeUpEvent.Invoke();
-            Debug.Log("ゲーム終了");
+            Debug.Log("timeゲーム終了");
         }
     }
 }

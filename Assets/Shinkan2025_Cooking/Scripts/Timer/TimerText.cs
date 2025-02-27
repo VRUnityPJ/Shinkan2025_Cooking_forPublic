@@ -9,6 +9,7 @@ public class TimerText : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timeText;
     private CancellationToken _token;
+
     public async UniTask CountDownTimeText(float limitTime)
     {
         while (!_token.IsCancellationRequested)

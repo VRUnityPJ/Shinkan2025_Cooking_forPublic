@@ -8,7 +8,6 @@ public class TimePresenter : MonoBehaviour
 {
     [SerializeField] TimerText _timerText;
     [SerializeField] StageTimer _stageTimer;
-    // Start is called before the first frame update
 
     private void Init()
     {
