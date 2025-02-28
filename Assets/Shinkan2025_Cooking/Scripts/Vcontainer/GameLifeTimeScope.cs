@@ -8,12 +8,14 @@ using VContainer.Unity;
 public class GameLifeTimeScope : LifetimeScope
 {
     [SerializeField] private GameProgress _gameProgress;
+    [SerializeField] private HogeSwordSpawner _swordSpawner;
 
     protected override void Configure(IContainerBuilder builder)
     {
         RegisterCompenentInHierarchy<DemoGameEnd>(builder);
 
         //Inject先のクラスのインスタンス登録
+        builder.RegisterComponent(_swordSpawner);
         builder.RegisterComponent(_gameProgress);
     }
 
@@ -28,4 +30,5 @@ public class GameLifeTimeScope : LifetimeScope
         builder.RegisterComponentInHierarchy<T>()
           .As<IGameEndIndicatable>();
     }
+
 }
