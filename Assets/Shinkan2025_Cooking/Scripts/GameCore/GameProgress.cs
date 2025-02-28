@@ -14,13 +14,9 @@ public class GameProgress : MonoBehaviour
     [SerializeField] StageTimer _stageTimer;
     [SerializeField] SceneSwitch _sceneSwitch;
 
+    [Inject]
     private IGameEndIndicatable _gameEndIndicatable;
 
-    [Inject]
-    public void Inject(IGameEndIndicatable gameEndIndicatable)
-    {
-        _gameEndIndicatable = gameEndIndicatable;
-    }
     /// <summary>
     /// ?V?[?????s???????????????o??????
     /// ?e?N???X???????????????????s??
@@ -29,10 +25,8 @@ public class GameProgress : MonoBehaviour
     [ContextMenu("GameStart")]
     public void SetUpGameProgress()
     {
-        Debug.Log("?Q?[???J?n");
         _stageTimer.StartTimer();
-        Debug.Log($"{_gameEndIndicatable}です");
-        //?Q?[???I???????m???w???????Q?[???I?????????????o??
+
         if (_gameEndIndicatable == null)
         {
             Debug.Log("IGameEndIndicatableがnullです");
@@ -52,7 +46,7 @@ public class GameProgress : MonoBehaviour
     /// </summary>
     public void ExitGame()
     {
-        Debug.Log("????Scene?");
+        Debug.Log("タイトルSceneへ");
         _sceneSwitch.SwitchScene();
     }
 }

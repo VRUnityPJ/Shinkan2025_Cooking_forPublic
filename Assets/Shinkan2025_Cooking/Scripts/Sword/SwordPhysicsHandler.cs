@@ -4,31 +4,51 @@ using UnityEngine;
 using UniRx;
 using System;
 using System.Linq;
+using VContainer;
 
 public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
 {
     [SerializeField] private List<GameObject> _foodParentPoint;
     [SerializeField] GameObject _parentSword;
 
-    private Rigidbody _rigidbody;
+    private IPlayerInputController _playerInputController;
+
+    private Rigidbody _rb;
     private Collider _collider;
     private string _foodName;
     private readonly Subject<Unit> _isStabbed = new();
+    private bool _canStabbed;
+    private Vector3 _prevPos;
+
+    /// <summary>
+    /// 内積の閾値
+    /// </summary>
+    private float _stabThreshold = 0.3f;
+
     public IObservable<Unit> IsStabbed => _isStabbed;
     public string FoodName => _foodName;
 
+    public void Inject(IPlayerInputController playerInputController)
+    {
+        _playerInputController = playerInputController;
+        Debug.Log($"inject={_playerInputController}");
+    }
+
     void Start()
     {
-        TryGetComponent(out _rigidbody);
+        TryGetComponent(out _rb);
         TryGetComponent(out _collider);
 
+        _prevPos = transform.position;
     }
 
     public void OnTriggerEnter(Collider other)
     {
+        if (_canStabbed != true) return;
         if (!other.gameObject.TryGetComponent(out IFoodPhysicsHandler foodPhysicsHandler)) return;
         other.gameObject.TryGetComponent(out Food food);
         if(foodPhysicsHandler.OnStabbed()!=1)return;
+
         OnStabbed(food.GetName(), other.gameObject);
     }
 
@@ -66,5 +86,25 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
         _isStabbed.Dispose();
         _parentSword.SetActive(false);
         //Destroy(_parentSword);
+    }
+
+    public void Update()
+    {
+        Vector3 currentPos = transform.position;
+        Vector3 velocity = (currentPos - _prevPos) / Time.deltaTime;
+        Vector3 moveDicrection = velocity.normalized;
+        float dot = Vector3.Dot(transform.up, moveDicrection);
+
+        Debug.Log($"現在の内積{dot}");
+
+        if (dot < _stabThreshold)
+        {
+            _canStabbed = false;
+        }
+        else
+        {
+            _canStabbed = true;
+        }
+        _prevPos = currentPos;
     }
 }

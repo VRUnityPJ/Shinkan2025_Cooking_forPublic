@@ -5,5 +5,7 @@ using UniRx;
 
 public interface IPlayerInputController
 {
-    public IReadOnlyReactiveProperty<bool> IsClick { get; }
+    public IReadOnlyReactiveProperty<bool> CanStab { get; }
+    public Vector3 Velocity { get; }
+    public Vector3 AngularVelocity { get; }
 }

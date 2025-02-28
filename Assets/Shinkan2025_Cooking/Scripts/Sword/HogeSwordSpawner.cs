@@ -10,6 +10,8 @@ public class HogeSwordSpawner : MonoBehaviour
     [SerializeField] Transform _rightControllerPos;
     [SerializeField] GameObject _swordPrefab;
 
+    public GameObject SwordPrefab => _swordPrefab;
+
     private void Start()
     {
         InstiniateSword();
