@@ -23,7 +23,7 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
     /// <summary>
     /// 内積の閾値
     /// </summary>
-    private float _stabThreshold = 0.3f;
+    [SerializeField] private float _stabThreshold = -0.1f;
 
     public IObservable<Unit> IsStabbed => _isStabbed;
     public string FoodName => _foodName;

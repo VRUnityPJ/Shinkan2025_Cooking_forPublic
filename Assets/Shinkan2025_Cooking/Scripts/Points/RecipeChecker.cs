@@ -13,12 +13,16 @@ namespace Shinkan2025_Cooking.Scripts.Points
     /// Recipeからポイントを決定しpointholderに投げるクラス
     /// 特定のSceneに一つだけ存在する
     /// </summary>
-    public class RecipeChecker : MonoBehaviour
+    public class RecipeChecker : MonoBehaviour, IRecipeObservable
     {
         
         [SerializeField]FoodObjectListSO foodObjectListSO;
         [SerializeField]FoodRecipeListSO foodRecipeListSO;
+
         public static RecipeChecker Instance;
+        public IReadOnlyReactiveProperty<string> FinishedRecipeName => _finishedFoodName;
+
+        private readonly StringReactiveProperty _finishedFoodName = new();
         private int _recipePoint;
         
         void Start()
@@ -41,7 +45,8 @@ namespace Shinkan2025_Cooking.Scripts.Points
                 _recipePoint += foodData.FoodBasePoint;
             }
             var hitrecipe = foodRecipeListSO.GetRecipefromFoodData(recipe);
-            Debug.Log(hitrecipe.FoodRecipeName);
+            
+            RegisterRecipeName(hitrecipe.FoodRecipeName);
             _recipePoint += hitrecipe.RecipePoint;
             PointHolder.Instance?.UpPoint(_recipePoint);
         }
@@ -49,6 +54,12 @@ namespace Shinkan2025_Cooking.Scripts.Points
         private void DestroyInstance(Scene _)
         {
             Destroy(Instance);
+        }
+
+        public void RegisterRecipeName(string recipeName)
+        {
+            _finishedFoodName.Value = recipeName;
+            Debug.Log(recipeName);
         }
     }
 }
