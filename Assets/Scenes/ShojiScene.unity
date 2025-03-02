@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initializeSceneNames:
   - ShojiScene
+  - FirstScene_Demo
   _database: {fileID: 11400000, guid: 912b7354008c705428b770710cee8d2b, type: 2}
 --- !u!4 &30672752
 Transform:
@@ -1156,6 +1157,7 @@ MonoBehaviour:
   _gameProgress: {fileID: 548942689}
   _swordSpawner: {fileID: 705898683}
   _comboPresenter: {fileID: 14753910}
+  _pointHolder: {fileID: 1790198479}
 --- !u!114 &548942691
 MonoBehaviour:
   m_ObjectHideFlags: 0

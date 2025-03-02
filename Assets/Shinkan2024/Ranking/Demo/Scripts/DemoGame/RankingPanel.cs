@@ -4,6 +4,7 @@ using Ranking.Scripts;
 using Ranking.Scripts.Interface;
 using Ranking.Demo;
 using Ranking.Demo.Scripts.DemoGame;
+using Shinkan2025_Cooking.Ranking.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

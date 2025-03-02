@@ -3,6 +3,7 @@ using Ranking.Scripts.Interface;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VContainer;
 
 namespace Shinkan2025_Cooking.Scripts.Points
 {
@@ -18,33 +19,69 @@ namespace Shinkan2025_Cooking.Scripts.Points
         private RankingStorage _storage;
         private ReactiveProperty<Point> _point = new ReactiveProperty<Point>();
         public IReadOnlyReactiveProperty<Point> Point => _point;
-        public static PointHolder Instance;
-        
+        private static PointHolder _instance;
+        [Inject] private IGameEndIndicatable _gameEnd;
+        public static PointHolder Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    GameObject singleton = new GameObject();
+                    _instance = singleton.AddComponent<PointHolder>();
+                    DontDestroyOnLoad(singleton);
+                }
+                return _instance;
+            }
+        }
         void Start()
         {
+            SetInstance();
             SetStorage();
             _point.Value = new Point(0);
 
             _point
                 .Subscribe(value => SendData(value))
                 .AddTo(this);
+            
+            _gameEnd.OnGameEnd.Subscribe(_ => _storage.Register()).AddTo(this);
 
+            /*
             if (Instance == null)
                 Instance = this;
             else
                 Destroy(this);
 
             SceneManager.sceneUnloaded += DestroyInstance;
+        */
+            
+            //シングルトンパターン
+            //現在のsceneがinitialSceneに設定されていなかったらスルー
+            
+        }
+
+        public void SetInstance()
+        {
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         public void SetStorage()
         {
             _storage = RankingStorage.instance;
+            Debug.Log(_storage);
             if(!_storage)
                 Debug.LogError("Storageが取得できません");
         }
         public void SendData(Point point)
         {
+            Debug.Log("Ranking Updating...");
             _storage?.UpdateData(point);
+            Debug.Log("Ranking Updated");
         }
 
         /// <summary>

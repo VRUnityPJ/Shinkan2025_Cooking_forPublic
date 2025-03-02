@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Ranking.Scripts.Interface;
 using UnityEditor;
 using UnityEngine;
+using Shinkan2025_Cooking.Ranking.Scripts;
 
 namespace Ranking.Scripts.DataBase
 {
@@ -56,6 +57,8 @@ namespace Ranking.Scripts.DataBase
     [Serializable]
     public class RankingData
     {
+        
+        
         /// <summary>
         /// 型データとobject型のインスタンスを保持するDictionary
         /// </summary>

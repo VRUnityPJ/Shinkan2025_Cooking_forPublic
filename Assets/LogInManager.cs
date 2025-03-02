@@ -1,3 +1,4 @@
+using Shinkan2025_Cooking.Ranking.Scripts;
 using UnityEngine;
 /// <summary>
 /// FirstSceneでPlayFabにログインするだけのクラス
