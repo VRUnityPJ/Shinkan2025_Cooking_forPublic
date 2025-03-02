@@ -11,7 +11,7 @@ public class GameLifeTimeScope : LifetimeScope
     [SerializeField] private GameProgress _gameProgress;
     [SerializeField] private HogeSwordSpawner _swordSpawner;
     [SerializeField] private ComboPresenter _comboPresenter;
-
+    [SerializeField] private PointHolder _pointHolder;
     protected override void Configure(IContainerBuilder builder)
     {
         RegisterCompenentInHierarchy<DemoGameEnd>(builder);
@@ -23,6 +23,7 @@ public class GameLifeTimeScope : LifetimeScope
         builder.RegisterComponent(_swordSpawner);
         builder.RegisterComponent(_gameProgress);
         builder.RegisterComponent(_comboPresenter);
+        builder.RegisterComponent(_pointHolder);
     }
 
     /// <summary>

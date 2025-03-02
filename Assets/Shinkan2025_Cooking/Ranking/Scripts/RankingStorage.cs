@@ -3,6 +3,7 @@ using Ranking.Scripts.Interface;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Ranking.Scripts.DataBase;
+using Shinkan2025_Cooking.Ranking.Scripts;
 using UnityEditor;
 
 namespace Ranking.Scripts
@@ -127,6 +128,7 @@ namespace Ranking.Scripts
                 throw new Exception("ランキングデータがありません");
             
             PlayFabManager.RegisterRankingData(_rankingData);
+            
         }
     }
 }
