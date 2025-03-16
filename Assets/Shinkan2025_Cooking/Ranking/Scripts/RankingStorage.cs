@@ -33,6 +33,8 @@ namespace Ranking.Scripts
         /// ストレージが保持するランキングデータ
         /// </summary>
         private static RankingData _rankingData;
+        
+        public RankingData RankingData => _rankingData;
 
         private void Awake()
         {

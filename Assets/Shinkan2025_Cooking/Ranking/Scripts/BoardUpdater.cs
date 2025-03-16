@@ -28,19 +28,18 @@ namespace Shinkan2025_Cooking.Ranking.Scripts
             Debug.Log("board更新するよ");
             _animationManager.FadeOut();
             yield return new WaitForSeconds(0.6f);
-            _animationManager.UpdateNormalText(ranking);
-            yield return new WaitForSeconds(0.4f);
-            _animationManager.FadeIn();
+            try
+            {
+                _animationManager.UpdateNameText(ranking);
+                yield return new WaitForSeconds(0.4f);
+            }
+            finally
+            {
+                _animationManager.FadeIn();
+            }
+            
         }
         
-        private IEnumerator UpdateHardBoard(RankingData[] ranking)
-        {
-            Debug.Log("board更新するよ");
-            _animationManager.FadeOut();
-            yield return new WaitForSeconds(0.6f);
-            _animationManager.UpdateHardText(ranking);
-            yield return new WaitForSeconds(0.4f);
-            _animationManager.FadeIn();
-        }
+
     } 
 }
