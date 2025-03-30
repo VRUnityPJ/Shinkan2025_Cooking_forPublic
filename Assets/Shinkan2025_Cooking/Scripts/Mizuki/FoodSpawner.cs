@@ -8,7 +8,7 @@ public class FoodSpawner : MonoBehaviour
     public float foodLifeTime = 10.0f;
     private float time = 0.0f;
     private float nextFoodSpawnTime = 5.0f;
-    [SerializeField] private float foodSpeed = 5.0f;
+    [SerializeField] private float foodSpeed = 10.0f;
 
     private Transform[] spawnPoints;
 
@@ -37,7 +37,7 @@ public class FoodSpawner : MonoBehaviour
         // �����_���ȃX�|�[���|�C���g��I��
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        GameObject spawnedFood = Instantiate(food, randomSpawnPoint.position, Quaternion.identity);
+        GameObject spawnedFood = Instantiate(food, randomSpawnPoint);
         spawnedFood.TryGetComponent<IFoodPhysicsHandler>(out var handler);
         handler.OnInstantiate(foodSpeed, foodLifeTime);
     }
@@ -45,7 +45,7 @@ public class FoodSpawner : MonoBehaviour
     private void NextFood()
     {
         nextFoodSpawnTime = Random.Range(1.0f, 5.0f);
-        foodSpeed = Random.Range(5.0f, 10.0f);
+        //foodSpeed = Random.Range(5.0f, 10.0f);
         int index = Random.Range(0, foodObjList.foodList.Count);
         food = foodObjList.foodList[index];
     }
