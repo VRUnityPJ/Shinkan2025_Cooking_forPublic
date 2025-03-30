@@ -1,50 +1,53 @@
 using UnityEngine;
 
-public class FoodPhysicsHandler : MonoBehaviour, IFoodPhysicsHandler
+namespace Shinkan2025_Cooking.Scripts.Mizuki
 {
-    private Rigidbody _rb;
-    private float foodLifeTime;
-    private bool isStabbed = false;
-    private int stabCount = 0;
-
-    void Awake()
+    public class FoodPhysicsHandler : MonoBehaviour, IFoodPhysicsHandler
     {
-        _rb = GetComponent<Rigidbody>();
-    }
+        private Rigidbody _rb;
+        private float foodLifeTime;
+        private bool isStabbed = false;
+        private int stabCount = 0;
 
-    public void OnInstantiate(float foodSpeed, float foodLifeTime)
-    {
-        this.foodLifeTime = foodLifeTime;
-
-        if (_rb != null)
+        void Awake()
         {
-            _rb.AddForce(new Vector3(50, 50, 0) * foodSpeed);
+            _rb = GetComponent<Rigidbody>();
         }
-    }
 
-    void Update()
-    {
-        foodLifeTime -= Time.deltaTime;
-
-        if (isStabbed == false)
+        public void OnInstantiate(float foodSpeed, float foodLifeTime)
         {
-            if (foodLifeTime <= 0)
+            this.foodLifeTime = foodLifeTime;
+
+            if (_rb != null)
             {
-                OnTimeOut();
+                _rb.AddForce(transform.InverseTransformPoint(new Vector3(0, 30, 40) * foodSpeed));
             }
         }
-    }
 
-    private void OnTimeOut()
-    {
-        Destroy(gameObject);
-    }
+        void Update()
+        {
+            foodLifeTime -= Time.deltaTime;
 
-    public int OnStabbed()
-    {
-        stabCount++;
-        isStabbed = true;
-        _rb.isKinematic = true;
-        return stabCount;
+            if (isStabbed == false)
+            {
+                if (foodLifeTime <= 0)
+                {
+                    OnTimeOut();
+                }
+            }
+        }
+
+        private void OnTimeOut()
+        {
+            Destroy(gameObject);
+        }
+
+        public int OnStabbed()
+        {
+            stabCount++;
+            isStabbed = true;
+            _rb.isKinematic = true;
+            return stabCount;
+        }
     }
 }
