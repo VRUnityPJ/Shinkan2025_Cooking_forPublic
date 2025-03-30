@@ -20,7 +20,7 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
 
             if (_rb != null)
             {
-                _rb.AddForce(transform.InverseTransformPoint(new Vector3(0, 45, 50) * foodSpeed));
+                _rb.AddForce(transform.InverseTransformPoint(new Vector3(0, 30, 40) * foodSpeed));
             }
         }
 

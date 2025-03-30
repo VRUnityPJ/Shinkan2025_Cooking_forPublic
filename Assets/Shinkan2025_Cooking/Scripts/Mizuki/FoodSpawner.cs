@@ -27,15 +27,34 @@ public class FoodSpawner : MonoBehaviour
         if (time >= nextFoodSpawnTime)
         {
             NextFood();
-            InstantiateFood();
+            int randomPointFirst = Random.Range(0, spawnPoints.Length);
+            int randomPointSecond;
+
+            // 無限ループを避けるため、範囲が2以上であることを確認
+            if (spawnPoints.Length > 1)
+            {
+                do
+                {
+                    randomPointSecond = Random.Range(0, spawnPoints.Length);
+                } while (randomPointFirst == randomPointSecond);
+            }
+            else
+            {
+                // 範囲が1以下の場合、安全にデフォルト値を設定
+                randomPointSecond = randomPointFirst;
+            }
+
+            InstantiateFood(randomPointFirst);
+            InstantiateFood(randomPointSecond);
             time = 0.0f;
         }
     }
 
-    private void InstantiateFood()
+    private void InstantiateFood(int spawnPointNum)
     {
+        
         // �����_���ȃX�|�[���|�C���g��I��
-        Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform randomSpawnPoint = spawnPoints[spawnPointNum];
 
         GameObject spawnedFood = Instantiate(food, randomSpawnPoint);
         spawnedFood.TryGetComponent<IFoodPhysicsHandler>(out var handler);
@@ -44,7 +63,7 @@ public class FoodSpawner : MonoBehaviour
 
     private void NextFood()
     {
-        nextFoodSpawnTime = Random.Range(1.0f, 5.0f);
+        nextFoodSpawnTime = Random.Range(2.5f, 5.0f);
         //foodSpeed = Random.Range(5.0f, 10.0f);
         int index = Random.Range(0, foodObjList.foodList.Count);
         food = foodObjList.foodList[index];
