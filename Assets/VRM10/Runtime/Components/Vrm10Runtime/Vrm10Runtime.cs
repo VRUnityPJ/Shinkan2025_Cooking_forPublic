@@ -72,7 +72,6 @@ namespace UniVRM10
 
         public void Dispose()
         {
-            Expression.Dispose();
             ControlRig?.Dispose();
             SpringBone.Dispose();
         }

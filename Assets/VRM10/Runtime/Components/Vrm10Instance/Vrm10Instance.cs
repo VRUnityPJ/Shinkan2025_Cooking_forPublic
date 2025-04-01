@@ -216,11 +216,6 @@ namespace UniVRM10
 
         private void OnDestroy()
         {
-            DisposeRuntime();
-        }
-
-        public void DisposeRuntime()
-        {
             if (m_runtime != null)
             {
                 m_runtime.Dispose();
