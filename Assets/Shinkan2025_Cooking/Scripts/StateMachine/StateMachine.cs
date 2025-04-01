@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+
 /// <summary>
 /// 以下のリンクのコードを元にしました。
 /// https://light11.hatenadiary.com/entry/2019/02/14/223312
@@ -9,7 +10,7 @@ using System;
 /// -FixedUpdateの処理も記述できるようにした。
 /// -現在のステートを取得できるようにした。
 /// </summary>
-namespace StateMachineTemplate.Scripts
+namespace Shinkan2025_Cooking.Scripts.StateMachine
 {
     public class StateMapping
     {
