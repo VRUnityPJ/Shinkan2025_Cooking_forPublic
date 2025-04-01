@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: Food Object List SO
   m_EditorClassIdentifier: 
   foodList:
-  - {fileID: 6847275003567602600, guid: afcc782481eaad44393b00d74155a8b0, type: 3}
+  - {fileID: 2932276488945402463, guid: 3800a947044c0494680f3caabcd06aac, type: 3}
+  - {fileID: 4846369969172892469, guid: 66a8f8634791a47aabd5df4daf5e2425, type: 3}
+  - {fileID: 7543775948762885090, guid: 48e82b512c3fe40b7838fe2576fe9f9d, type: 3}
+  - {fileID: 2257667171673238352, guid: bd41f35ad3c4c45a2b931429b9c7b85c, type: 3}
+  - {fileID: 7930885618560006831, guid: d5933c41f7bb3476b81f1d5d7a9cc24b, type: 3}
+  - {fileID: 7792010300412559081, guid: 0f363caa42dcf4aeeb3de14daff2b0bc, type: 3}
+  - {fileID: 418380082223313694, guid: 0ec9c78f64c0343b3b2d74b0294e9f2c, type: 3}
+  - {fileID: 6071046214382205338, guid: aada987db958d403d90bdc0f3876baf2, type: 3}
+  - {fileID: 8352918021792158310, guid: b0f31d8fdadf94a82add0d86374a0acb, type: 3}
+  - {fileID: 7714958614658933068, guid: 2a7cd2bd8ae014f5a9bcf381980d15e0, type: 3}

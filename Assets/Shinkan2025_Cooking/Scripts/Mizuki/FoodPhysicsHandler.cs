@@ -17,10 +17,13 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
         public void OnInstantiate(float foodSpeed, float foodLifeTime)
         {
             this.foodLifeTime = foodLifeTime;
-
+            
             if (_rb != null)
             {
-                _rb.AddForce(transform.InverseTransformPoint(new Vector3(0, 30, 40) * foodSpeed));
+                var localPosX = transform.right;
+                var localPosY = transform.up;
+                var vector = (localPosX * 2 + localPosY ) * foodSpeed;
+                _rb.AddForce(vector, ForceMode.Impulse);
             }
         }
 
