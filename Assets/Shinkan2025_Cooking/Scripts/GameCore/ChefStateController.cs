@@ -15,6 +15,7 @@ namespace Shinkan2025_Cooking.Scripts.GameCore
         ToShake,
         ToThrow
     }
+    
     public class ChefStateController : MonoBehaviour
     {
         public event Action OnEnterShake;

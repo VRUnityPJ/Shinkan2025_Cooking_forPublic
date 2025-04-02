@@ -18,6 +18,7 @@ namespace Shinkan2025_Cooking.Scripts.Timer
                 if (limitTime <= 0f) break;
                 limitTime -= Time.deltaTime;
                 _timeText.text = $"TImer:{limitTime.ToString("N0")}";
+                Debug.Log($"TImer:{limitTime.ToString("N0")}");
             }
         }
     }
