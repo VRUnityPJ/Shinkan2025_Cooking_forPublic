@@ -7,7 +7,7 @@ using Shinkan2025_Cooking.Scripts.StateMachine;
 namespace Shinkan2025_Cooking.Scripts.GameCore
 {
 
-    public class GameProgressStateController : MonoBehaviour
+    public class GameProgressStateController : MonoBehaviour, IGameProgressIndicatable
     {
         public IObservable<Unit> OnStartGame => _onStartGame;
 
@@ -20,11 +20,13 @@ namespace Shinkan2025_Cooking.Scripts.GameCore
         public void StartGame()
         {
             _onStartGame.OnNext(Unit.Default);
+            _onStartGame.OnCompleted();
         }
 
         public void EndGame()
         {
             _onEndGame.OnNext(Unit.Default);
+            _onEndGame.OnCompleted();
         }
     }
 }

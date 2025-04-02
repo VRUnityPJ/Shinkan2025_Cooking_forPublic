@@ -5,18 +5,20 @@ using UniRx;
 using System;
 using VContainer;
 
-public class DemoGameEnd : MonoBehaviour, IGameEndIndicatable
+/*public class DemoGameEnd : MonoBehaviour, IGameProgressIndicatable
 {
-    private Subject<Unit> _onGameEnd = new();
+    private Subject<Unit> _onStartGame = new();
+    private Subject<Unit> _onEndGame = new();
 
-    public IObservable<Unit> OnGameEnd => _onGameEnd;
+    public IObservable<Unit> OnStartGame => _onStartGame;
+    public IObservable<Unit> OnEndGame => _onEndGame;
 
-    [ContextMenu("GameEnd")]
+    [ContextMenu("EndGame")]
     public void FinishGame()
     {
-        _onGameEnd.OnNext(Unit.Default);
-        _onGameEnd.OnCompleted();
+        _onEndGame.OnNext(Unit.Default);
+        _onEndGame.OnCompleted();
 
-        _onGameEnd.Dispose();
+        _onEndGame.Dispose();
     }
-}
+}*/

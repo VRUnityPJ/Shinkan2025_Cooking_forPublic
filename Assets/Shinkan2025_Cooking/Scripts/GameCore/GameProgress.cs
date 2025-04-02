@@ -1,52 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using Shinkan2025_Cooking.Scripts.Timer;
-using UnityEngine;
 using UniRx;
+using UnityEngine;
 using VContainer;
-using VContainer.Unity;
 
-/// <summary>
-/// ?Q?[???i?s???????????N???X?B???????V?[?????s?????????o???B
-/// </summary>
-public class GameProgress : MonoBehaviour
+namespace Shinkan2025_Cooking.Scripts.GameCore
 {
-    [SerializeField] StageTimer _stageTimer;
-    [SerializeField] SceneSwitch _sceneSwitch;
-
-    [Inject]
-    private IGameEndIndicatable _gameEndIndicatable;
-
     /// <summary>
-    /// ?V?[?????s???????????????o??????
-    /// ?e?N???X???????????????????s??
+    /// ?Q?[???i?s???????????N???X?B???????V?[?????s?????????o???B
     /// </summary>
-
-    [ContextMenu("GameStart")]
-    public void SetUpGameProgress()
+    public class GameProgress : MonoBehaviour
     {
-        _stageTimer.StartTimer();
+        [SerializeField] StageTimer _stageTimer;
+        [SerializeField] SceneSwitch _sceneSwitch;
 
-        if (_gameEndIndicatable == null)
+        [Inject]
+        private IGameProgressIndicatable _gameProgressIndicatable;
+
+        void Start()
         {
-            Debug.Log("IGameEndIndicatableがnullです");
-            return;
+            SetUpGameProgress();
+        }
+        
+        /// <summary>
+        /// ?V?[?????s???????????????o??????
+        /// ?e?N???X???????????????????s??
+        /// </summary>
+
+        [ContextMenu("GameStart")]
+        public void SetUpGameProgress()
+        {
+            _stageTimer.StartTimer();
+            Debug.Log("GameStart");
+            if (_gameProgressIndicatable == null)
+            {
+                Debug.Log("IGameEndIndicatableがnullです");
+                return;
+            }
+
+            _gameProgressIndicatable.OnEndGame
+                .Subscribe(_ =>
+                {
+                    ExitGame();
+
+                }).AddTo(this);
         }
 
-        _gameEndIndicatable.OnGameEnd
-            .Subscribe(_ =>
-            {
-                ExitGame();
-
-            }).AddTo(this);
-    }
-
-    /// <summary>
-    /// ?Q?[???I???????????o??????
-    /// </summary>
-    public void ExitGame()
-    {
-        Debug.Log("タイトルSceneへ");
-        _sceneSwitch.SwitchScene();
+        /// <summary>
+        /// ?Q?[???I???????????o??????
+        /// </summary>
+        public void ExitGame()
+        {
+            Debug.Log("タイトルSceneへ");
+            _sceneSwitch.SwitchScene();
+        }
     }
 }

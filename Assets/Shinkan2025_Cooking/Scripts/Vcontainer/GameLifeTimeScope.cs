@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Shinkan2025_Cooking.Scripts.GameCore;
 using Shinkan2025_Cooking.Scripts.Timer;
 using UnityEngine;
 using VContainer;
@@ -14,7 +15,7 @@ public class GameLifeTimeScope : LifetimeScope
     [SerializeField] private PointHolder _pointHolder;
     protected override void Configure(IContainerBuilder builder)
     {
-        RegisterCompenentInHierarchy<DemoGameEnd>(builder);
+        RegisterCompenentInHierarchy<GameProgressStateController>(builder);
 
         builder.RegisterComponentInHierarchy<RecipeChecker>()
           .As<IRecipeObservable>();
@@ -32,10 +33,10 @@ public class GameLifeTimeScope : LifetimeScope
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="builder"></param>
-    private void RegisterCompenentInHierarchy<T>(IContainerBuilder builder) where T : MonoBehaviour, IGameEndIndicatable
+    private void RegisterCompenentInHierarchy<T>(IContainerBuilder builder) where T : MonoBehaviour, IGameProgressIndicatable
     {
         builder.RegisterComponentInHierarchy<T>()
-          .As<IGameEndIndicatable>();
+          .As<IGameProgressIndicatable>();
     }
 
 }
