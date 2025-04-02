@@ -15,7 +15,9 @@ namespace Shinkan2025_Cooking.Scripts.GameCore
         ToShake,
         ToThrow
     }
-    
+    /// <summary>
+    /// シェフにアタッチしてフライパンを振っている状態か具材を投げている状態かを通知する
+    /// </summary>
     public class ChefStateController : MonoBehaviour
     {
         public event Action OnEnterShake;
