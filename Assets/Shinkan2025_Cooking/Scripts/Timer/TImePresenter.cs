@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UniRx;
-using Shinkan2025_Cooking.Scripts.Timer;
+using System.Threading;
 using Cysharp.Threading.Tasks;
-public class TimePresenter : MonoBehaviour
+using UniRx;
+using UnityEngine;
+
+namespace Shinkan2025_Cooking.Scripts.Timer
 {
-    [SerializeField] TimerText _timerText;
-    [SerializeField] StageTimer _stageTimer;
-
-    private void Init()
+    public class TimePresenter : MonoBehaviour
     {
-        _stageTimer.OnTimerStart
-            .Subscribe(x =>
-            {
-                _timerText.CountDownTimeText(x).Forget();
-            }).AddTo(this);
+        [SerializeField] TimerText _timerText;
+        [SerializeField] StageTimer _stageTimer;
+        
+        private void Init()
+        {
+            _stageTimer.OnTimerStart
+                .Subscribe(x =>
+                {
+                    _timerText.CountDownTimeText(x).Forget();
+                }).AddTo(this);
+        }
+        void Awake()
+        {
+            Init();
+        }
     }
-    void Start()
-    {
-        Init();
-    }
-
 }
