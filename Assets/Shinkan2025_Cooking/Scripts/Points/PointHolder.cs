@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Ranking.Scripts;
 using Ranking.Scripts.Interface;
 using UniRx;
@@ -19,6 +20,8 @@ namespace Shinkan2025_Cooking.Scripts.Points
         private RankingStorage _storage;
         private ReactiveProperty<Point> _point = new ReactiveProperty<Point>();
         public IReadOnlyReactiveProperty<Point> Point => _point;
+        public IReadOnlyReactiveProperty<int> UPPoint => _upPoint;
+        private ReactiveProperty<int> _upPoint = new();
         private static PointHolder _instance;
         [Inject] private IGameEndIndicatable _gameEnd;
         public static PointHolder Instance
@@ -92,6 +95,7 @@ namespace Shinkan2025_Cooking.Scripts.Points
         {
             if (_point is null) return;
             _point.Value = _point.Value.Add(new Point(val));
+            _upPoint.Value = val;
         }
 
         private void DestroyInstance(Scene _)
