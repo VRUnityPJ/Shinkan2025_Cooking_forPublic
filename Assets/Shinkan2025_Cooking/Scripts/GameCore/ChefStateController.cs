@@ -77,6 +77,10 @@ namespace Shinkan2025_Cooking.Scripts.GameCore
             );
         }
 
+        /// <summary>
+        /// シェフの状態を変更する
+        /// </summary>
+        /// <param name="trigger"></param>
         public void ChefExecuteTrigger(ChefStateTrigger trigger)
         {
             _chefStateMachine.ExecuteTrigger(trigger);
