@@ -2033,7 +2033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameProgressIndicatorPrefab: {fileID: 548942685}
   foodObjList: {fileID: 11400000, guid: 6fa127908a8f6dd43a8a511aef75ca2c, type: 2}
-  foodSpeed: 5
+  foodSpeed: 7.5
   spawnPoints:
   - {fileID: 1362799349}
   - {fileID: 1430156816}
@@ -4900,7 +4900,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

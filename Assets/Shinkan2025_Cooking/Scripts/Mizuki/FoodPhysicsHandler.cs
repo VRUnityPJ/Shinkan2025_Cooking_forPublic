@@ -22,7 +22,7 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
             {
                 var localPosX = transform.right;
                 var localPosY = transform.up;
-                var vector = (localPosX * 2 + localPosY ) * foodSpeed;
+                var vector = (localPosX * 0.8f + localPosY * 2.3f) * foodSpeed;
                 _rb.AddForce(vector, ForceMode.Impulse);
             }
         }
