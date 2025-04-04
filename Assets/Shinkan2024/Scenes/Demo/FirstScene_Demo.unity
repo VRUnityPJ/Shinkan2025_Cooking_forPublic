@@ -4070,7 +4070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc262e1332da4af5bde90b306a7af216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameScene: ShojiScene
+  _gameScene: KitchenScene
   _enter: {fileID: 126046622}
   _inputcol: {fileID: 616041555}
 --- !u!1 &631418573
