@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cbf872d78297434e80a77f89475a711, type: 3}
-  m_Name: Norecipe
+  m_Name: KonnyakuSet
   m_EditorClassIdentifier: 
   _foodRecipe:
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  _foodRecipeName: "\u30EC\u30B7\u30D4\u306A\u3057"
-  _recipePoint: 0
+  - {fileID: 11400000, guid: 7a58fff75e0da254795c2b6f48742e63, type: 2}
+  - {fileID: 11400000, guid: 7a58fff75e0da254795c2b6f48742e63, type: 2}
+  - {fileID: 11400000, guid: 7a58fff75e0da254795c2b6f48742e63, type: 2}
+  _foodRecipeName: "\u3053\u3093\u306B\u3083\u304F\u30BB\u30C3\u30C8"
+  _recipePoint: 180

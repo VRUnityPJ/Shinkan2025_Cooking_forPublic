@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Sunagimo
   m_EditorClassIdentifier: 
   _foodName: "\u7802\u809D"
-  _foodAtribute: 00000000
+  _foodAtribute: 0000000005000000
   _foodBasePoint: 50

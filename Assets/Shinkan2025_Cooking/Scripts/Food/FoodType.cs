@@ -9,4 +9,7 @@ public enum FoodType
     X,
     Fruit,
     Vegetable,
+    Yakitori,
+    Oden,
+    Konnnyaku,
 }

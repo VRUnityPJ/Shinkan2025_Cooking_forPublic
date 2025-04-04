@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Torimomo
   m_EditorClassIdentifier: 
   _foodName: "\u9D8F\u3082\u3082"
-  _foodAtribute: 00000000
+  _foodAtribute: 0000000005000000
   _foodBasePoint: 80

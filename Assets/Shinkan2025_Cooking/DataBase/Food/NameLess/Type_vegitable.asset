@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b86201a2ee983f46bcabc164a1cdfc2, type: 3}
-  m_Name: Tsukune
+  m_Name: Type_vegitable
   m_EditorClassIdentifier: 
-  _foodName: "\u3064\u304F\u306D"
-  _foodAtribute: 0000000005000000
-  _foodBasePoint: 60
+  _foodName: 0
+  _foodAtribute: 04000000
+  _foodBasePoint: 0

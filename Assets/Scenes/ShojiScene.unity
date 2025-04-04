@@ -1599,6 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123f70c0027674ef684168e42e3f3d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waittime: 4
 --- !u!1 &550863041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,6 +5159,7 @@ MonoBehaviour:
   _recipeResultPrefab: {fileID: 7418131644436709700, guid: 03cd07173a278a741a42694f605435ed,
     type: 3}
   _instantiatepoint: {fileID: 1826387623}
+  _totalPointText: {fileID: 358108513}
 --- !u!114 &1483947559
 MonoBehaviour:
   m_ObjectHideFlags: 0

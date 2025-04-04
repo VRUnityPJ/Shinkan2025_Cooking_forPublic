@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using TMPro;
 using Shinkan2025_Cooking.Scripts.Points;
 public class PointPresenter : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PointPresenter : MonoBehaviour
     [SerializeField] GameObject _resultPanel;
     [SerializeField] GameObject _recipeResultPrefab;
     [SerializeField] GameObject _instantiatepoint;
+    [SerializeField] private TextMeshProUGUI _totalPointText;
     private List<int> _recipePointList=new();
     private List<string> _recipeNameList = new();
 
@@ -27,7 +29,8 @@ public class PointPresenter : MonoBehaviour
             .Subscribe(currentPoint =>
             {
                 _pointText.CountPointText(currentPoint.IntValue.ToString());
-             })
+                _totalPointText.text = $"Result {currentPoint.IntValue.ToString()}";
+            })
             .AddTo(this);
         _pointHolder.UPPoint
             .Skip(1)

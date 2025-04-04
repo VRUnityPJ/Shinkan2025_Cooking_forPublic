@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cbf872d78297434e80a77f89475a711, type: 3}
-  m_Name: Norecipe
+  m_Name: SuperOden
   m_EditorClassIdentifier: 
   _foodRecipe:
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  _foodRecipeName: "\u30EC\u30B7\u30D4\u306A\u3057"
-  _recipePoint: 0
+  - {fileID: 11400000, guid: 46bb5d595e51744c7869fac96abe2d9d, type: 2}
+  - {fileID: 11400000, guid: 2676c24f5fd27452dbc332a0199aa43b, type: 2}
+  - {fileID: 11400000, guid: f75541b990646489298aacb38574a32e, type: 2}
+  _foodRecipeName: "\u5B8C\u5168\u304A\u3067\u3093"
+  _recipePoint: 300

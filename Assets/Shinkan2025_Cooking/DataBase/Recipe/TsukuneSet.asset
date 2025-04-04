@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cbf872d78297434e80a77f89475a711, type: 3}
-  m_Name: Norecipe
+  m_Name: TsukuneSet
   m_EditorClassIdentifier: 
   _foodRecipe:
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  _foodRecipeName: "\u30EC\u30B7\u30D4\u306A\u3057"
-  _recipePoint: 0
+  - {fileID: 11400000, guid: 5355109b0be814f10a15bad6a08f78ea, type: 2}
+  - {fileID: 11400000, guid: 5355109b0be814f10a15bad6a08f78ea, type: 2}
+  - {fileID: 11400000, guid: 5355109b0be814f10a15bad6a08f78ea, type: 2}
+  _foodRecipeName: "\u3064\u304F\u306D\u30BB\u30C3\u30C8"
+  _recipePoint: 200
