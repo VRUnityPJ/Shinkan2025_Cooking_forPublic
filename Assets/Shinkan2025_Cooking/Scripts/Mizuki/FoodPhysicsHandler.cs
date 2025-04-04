@@ -8,6 +8,8 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
         private float foodLifeTime;
         private bool isStabbed = false;
         private int stabCount = 0;
+        [SerializeField] private float foodSpeedPower_x = 0.8f;
+        [SerializeField] private float foodSpeedPower_y = 2.0f;
 
         void Awake()
         {
@@ -22,7 +24,7 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
             {
                 var localPosX = transform.right;
                 var localPosY = transform.up;
-                var vector = (localPosX * 0.8f + localPosY * 2.3f) * foodSpeed;
+                var vector = (localPosX * foodSpeedPower_x + localPosY * foodSpeedPower_y) * foodSpeed;
                 _rb.AddForce(vector, ForceMode.Impulse);
             }
         }
