@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: AllType
   m_EditorClassIdentifier: 
   _foodName: 0
-  _foodAtribute: 0000000001000000020000000300000004000000
-  _foodObject: {fileID: 0}
+  _foodAtribute: 0000000001000000020000000300000004000000050000000600000007000000
   _foodBasePoint: 0

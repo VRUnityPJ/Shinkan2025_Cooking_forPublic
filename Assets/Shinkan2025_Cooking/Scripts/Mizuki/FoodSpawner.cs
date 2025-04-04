@@ -9,7 +9,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private IGameProgressIndicatable _gameProgressIndicatable;
     [SerializeField] private GameObject gameProgressIndicatorPrefab;
     [SerializeField] private FoodObjectListSO foodObjList;
-    [SerializeField] private float foodSpeed = 10.0f;
+    [SerializeField] private float foodSpeed = 5.0f;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float foodLifeTime = 10.0f;
     

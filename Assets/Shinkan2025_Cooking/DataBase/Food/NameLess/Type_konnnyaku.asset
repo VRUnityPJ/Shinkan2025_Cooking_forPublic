@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b86201a2ee983f46bcabc164a1cdfc2, type: 3}
   m_Name: Type_konnnyaku
   m_EditorClassIdentifier: 
-  _foodName: 
+  _foodName: 0
   _foodAtribute: 07000000
   _foodBasePoint: 0
