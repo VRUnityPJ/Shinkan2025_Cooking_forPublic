@@ -1,8 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
+using UniRx;
+using Unity.VisualScripting;
 
 public class FoodSpawner : MonoBehaviour
 {
+    [SerializeField] private IGameProgressIndicatable _gameProgressIndicatable;
+    [SerializeField] private GameObject gameProgressIndicatorPrefab;
     [SerializeField] private FoodObjectListSO foodObjList;
     [SerializeField] private float foodSpeed = 10.0f;
     [SerializeField] private Transform[] spawnPoints;
@@ -11,8 +16,32 @@ public class FoodSpawner : MonoBehaviour
     private GameObject food;
     private float time = 0.0f;
     private float nextFoodSpawnTime = 1.0f;
+    public bool isFoodSpawnable  = false;
+
+    void Awake()
+    {
+        _gameProgressIndicatable = gameProgressIndicatorPrefab.GetComponent<IGameProgressIndicatable>();
+        isFoodSpawnable = false;
+        
+        _gameProgressIndicatable.OnStartGame
+            .Subscribe(_ =>
+            {
+                isFoodSpawnable = true;
+            });
+    }
     
     void Update()
+    {
+        if (isFoodSpawnable)
+        {
+            Debug.Log("Food spawn");
+            SpawnFood();
+        }
+            
+        
+    }
+
+    private void SpawnFood()
     {
         time += Time.deltaTime;
         if (time >= nextFoodSpawnTime)
@@ -40,7 +69,6 @@ public class FoodSpawner : MonoBehaviour
             time = 0.0f;
         }
     }
-
     private void InstantiateFood(int spawnPointNum)
     {
         

@@ -1,23 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-using Cysharp.Threading.Tasks;
 using System.Threading;
+using Cysharp.Threading.Tasks;
+using TMPro;
+using UnityEngine;
 
-public class TimerText : MonoBehaviour
+namespace Shinkan2025_Cooking.Scripts.Timer
 {
-    [SerializeField] private TextMeshProUGUI _timeText;
-    private CancellationToken _token;
-
-    public async UniTask CountDownTimeText(float limitTime)
+    public class TimerText : MonoBehaviour
     {
-        while (!_token.IsCancellationRequested)
+        [SerializeField] private TextMeshProUGUI _timeText;
+        private CancellationToken _token = new CancellationToken();
+        
+        private void Start()
         {
-            await UniTask.Yield(cancellationToken: _token);
-            if (limitTime <= 0f) break;
-            limitTime -= Time.deltaTime;
-            _timeText.text = $"TImer:{limitTime.ToString("N0")}";
+            _token = this.GetCancellationTokenOnDestroy(); 
+        }
+
+        
+        public async UniTask CountDownTimeText(float limitTime)
+        {
+            while (!_token.IsCancellationRequested)
+            {
+                await UniTask.Yield(cancellationToken: _token);
+                if (limitTime <= 0f) break;
+                limitTime -= Time.deltaTime;
+                Debug.Log("limitTime:" +limitTime);
+                _timeText.text = $"Timer:{limitTime:N0}";
+                Debug.Log($"Timer:{limitTime:N0}");
+            }
         }
     }
 }

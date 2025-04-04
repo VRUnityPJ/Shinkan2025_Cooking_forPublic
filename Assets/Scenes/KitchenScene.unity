@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializeSceneNames:
-  - ShojiScene
+  - KitchenScene
   - FirstScene_Demo
   _database: {fileID: 11400000, guid: 912b7354008c705428b770710cee8d2b, type: 2}
 --- !u!4 &30672752
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 548942685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 123f70c0027674ef684168e42e3f3d5b, type: 3}
+  m_Script: {fileID: 11500000, guid: a49e9a393cfad7a49a8ba1ccf3a3bf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &550863041
@@ -1766,6 +1766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d814c79e8709484db4ef7069b45a452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameProgressIndicatorPrefab: {fileID: 548942685}
   foodObjList: {fileID: 11400000, guid: 6fa127908a8f6dd43a8a511aef75ca2c, type: 2}
   foodSpeed: 10.3
   spawnPoints:
@@ -1773,6 +1774,7 @@ MonoBehaviour:
   - {fileID: 1430156816}
   - {fileID: 1397347600}
   foodLifeTime: 10
+  isFoodSpawnable: 0
 --- !u!4 &621479432
 Transform:
   m_ObjectHideFlags: 0
@@ -1961,7 +1963,7 @@ GameObject:
   - component: {fileID: 668270014}
   - component: {fileID: 668270013}
   m_Layer: 5
-  m_Name: TImeText
+  m_Name: TimeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4584,13 +4586,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e0a402f434b4c578ffd5a52e3a7c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 5
+  _time: 10
   _timeUpEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 548942691}
-        m_TargetAssemblyTypeName: DemoGameEnd, Assembly-CSharp
-        m_MethodName: FinishGame
+        m_TargetAssemblyTypeName: Shinkan2025_Cooking.Scripts.GameCore.GameProgressStateController,
+          Assembly-CSharp
+        m_MethodName: EndGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

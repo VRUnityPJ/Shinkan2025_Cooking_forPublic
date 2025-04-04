@@ -7,28 +7,20 @@ using VContainer;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-public class DemoGameEnd : MonoBehaviour, IGameEndIndicatable
+/*public class DemoGameEnd : MonoBehaviour, IGameProgressIndicatable
 {
-    private Subject<Unit> _onGameEnd = new();
+    private Subject<Unit> _onStartGame = new();
+    private Subject<Unit> _onEndGame = new();
 
-    public IObservable<Unit> OnGameEnd => _onGameEnd;
-    private CancellationToken _token = new();
-    [SerializeField] private float _waittime = 4f;
+    public IObservable<Unit> OnStartGame => _onStartGame;
+    public IObservable<Unit> OnEndGame => _onEndGame;
 
-    [ContextMenu("GameEnd")]
+    [ContextMenu("EndGame")]
     public void FinishGame()
     {
-        _token = this.GetCancellationTokenOnDestroy();
-        EndGameAsync(_token);
-    }
-    public async void EndGameAsync(CancellationToken token)
-    {
-        
-        await UniTask.Delay(TimeSpan.FromSeconds(_waittime), cancellationToken: token);
-        _onGameEnd.OnNext(Unit.Default);
-        _onGameEnd.OnCompleted();
+        _onEndGame.OnNext(Unit.Default);
+        _onEndGame.OnCompleted();
 
-        _onGameEnd.Dispose();
-        Debug.Log("ゲーム終了");
+        _onEndGame.Dispose();
     }
-}
+}*/

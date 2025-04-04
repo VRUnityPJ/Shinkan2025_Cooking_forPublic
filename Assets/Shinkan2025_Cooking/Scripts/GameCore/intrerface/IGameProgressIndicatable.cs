@@ -7,7 +7,11 @@ using System;
 /// <summary>
 /// ゲーム終了を通知する機能を提供する
 /// </summary>
-public interface IGameEndIndicatable
+public interface IGameProgressIndicatable
 {
-    public IObservable<Unit> OnGameEnd {  get; }
+    public IObservable<Unit> OnStartGame { get; }
+    public IObservable<Unit> OnEndGame {  get; }
+
+    void StartGame();
+    void EndGame();
 }

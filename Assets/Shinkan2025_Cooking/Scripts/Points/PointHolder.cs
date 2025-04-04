@@ -23,7 +23,7 @@ namespace Shinkan2025_Cooking.Scripts.Points
         public IReadOnlyReactiveProperty<int> UPPoint => _upPoint;
         private ReactiveProperty<int> _upPoint = new();
         private static PointHolder _instance;
-        [Inject] private IGameEndIndicatable _gameEnd;
+        [Inject] private IGameProgressIndicatable _gameProgress;
         public static PointHolder Instance
         {
             get
@@ -47,7 +47,7 @@ namespace Shinkan2025_Cooking.Scripts.Points
                 .Subscribe(value => SendData(value))
                 .AddTo(this);
             
-            _gameEnd.OnGameEnd.Subscribe(_ => _storage.Register()).AddTo(this);
+            _gameProgress.OnEndGame.Subscribe(_ => _storage.Register()).AddTo(this);
 
             /*
             if (Instance == null)
