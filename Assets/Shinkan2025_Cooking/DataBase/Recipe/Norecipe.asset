@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
   - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
   - {fileID: 11400000, guid: b5406f008bbf1224fbd98c3ecdfd2b5f, type: 2}
-  _foodRecipeName: failed
+  _foodRecipeName: "\u30EC\u30B7\u30D4\u306A\u3057"
   _recipePoint: 0

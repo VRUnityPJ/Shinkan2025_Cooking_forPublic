@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Konnyaku
   m_EditorClassIdentifier: 
   _foodName: "\u3053\u3093\u306B\u3083\u304F"
-  _foodAtribute: 02000000
+  _foodAtribute: 020000000600000007000000
   _foodBasePoint: 5

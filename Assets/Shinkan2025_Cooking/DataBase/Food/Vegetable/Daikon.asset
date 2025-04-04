@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Daikon
   m_EditorClassIdentifier: 
   _foodName: "\u3060\u3044\u3053\u3093"
-  _foodAtribute: 04000000
+  _foodAtribute: 0400000006000000
   _foodBasePoint: 20

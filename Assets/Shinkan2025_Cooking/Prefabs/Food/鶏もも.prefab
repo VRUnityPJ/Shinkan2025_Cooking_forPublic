@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f78cd4be8cc784aa97bd1326cd2150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodDataBaseSO: {fileID: 0}
+  foodDataBaseSO: {fileID: 11400000, guid: 248dd7f6a43ba4b9b8947e9880a66ad0, type: 2}
 --- !u!114 &720066478786580559
 MonoBehaviour:
   m_ObjectHideFlags: 0

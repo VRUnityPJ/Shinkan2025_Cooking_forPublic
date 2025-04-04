@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chikuwa
   m_EditorClassIdentifier: 
   _foodName: "\u3061\u304F\u308F"
-  _foodAtribute: 02000000
+  _foodAtribute: 0200000006000000
   _foodBasePoint: 15
