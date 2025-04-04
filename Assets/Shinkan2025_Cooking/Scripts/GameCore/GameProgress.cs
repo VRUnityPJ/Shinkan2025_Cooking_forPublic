@@ -18,7 +18,13 @@ namespace Shinkan2025_Cooking.Scripts.GameCore
 
         void Start()
         {
-            SetUpGameProgress();
+            _gameProgressIndicatable.OnStartGame
+                .Subscribe(_ =>
+                {
+                    SetUpGameProgress();
+                });
+            //仮としてここで発火、後でゲーム開始のカウントダウン後とかに発火させるようにする
+            _gameProgressIndicatable.StartGame();
         }
         
         /// <summary>

@@ -11,4 +11,7 @@ public interface IGameProgressIndicatable
 {
     public IObservable<Unit> OnStartGame { get; }
     public IObservable<Unit> OnEndGame {  get; }
+
+    void StartGame();
+    void EndGame();
 }

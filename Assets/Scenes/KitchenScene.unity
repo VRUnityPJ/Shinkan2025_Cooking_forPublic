@@ -1766,6 +1766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d814c79e8709484db4ef7069b45a452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameProgressIndicatorPrefab: {fileID: 548942685}
   foodObjList: {fileID: 11400000, guid: 6fa127908a8f6dd43a8a511aef75ca2c, type: 2}
   foodSpeed: 10.3
   spawnPoints:
@@ -1773,6 +1774,7 @@ MonoBehaviour:
   - {fileID: 1430156816}
   - {fileID: 1397347600}
   foodLifeTime: 10
+  isFoodSpawnable: 0
 --- !u!4 &621479432
 Transform:
   m_ObjectHideFlags: 0
