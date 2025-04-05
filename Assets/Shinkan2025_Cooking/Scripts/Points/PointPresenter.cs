@@ -32,8 +32,8 @@ public class PointPresenter : MonoBehaviour
                 _totalPointText.text = $"Result {currentPoint.IntValue.ToString()}";
             })
             .AddTo(this);
+
         _pointHolder.UPPoint
-            .Skip(1)
             .Where(upPoint=>upPoint!=0)
             .Subscribe(upPoint =>
             {
@@ -41,14 +41,12 @@ public class PointPresenter : MonoBehaviour
              })
              .AddTo(this);
 
-        _recipeChecker.FinishedRecipeName
-            .Skip(1)
-            .Where(r_name=>r_name!=null)
+        _recipeChecker.RecipeName
             .Subscribe(r_name =>
             {
                 _recipeNameList.Add(r_name);
-             })
-            .AddTo(this);
+
+             }).AddTo(this);
         
     }
     [ContextMenu("DebugTimeUp")]
@@ -60,6 +58,7 @@ public class PointPresenter : MonoBehaviour
             var recipetext = Instantiate(_recipeResultPrefab,_instantiatepoint.gameObject.transform);
             var recipetextUI = recipetext.GetComponent<ResultRecipeUI>();
             recipetextUI.RecipeText(_recipeNameList[i],_recipePointList[i]);
+            Debug.Log("i="+i);
         }
         
     }

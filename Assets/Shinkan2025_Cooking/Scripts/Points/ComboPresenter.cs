@@ -19,7 +19,7 @@ public class ComboPresenter : MonoBehaviour
     {
         if (_recipeObservable == null) return; 
 
-        _recipeObservable.FinishedRecipeName
+        _recipeObservable.RecipeName
             .Where(name => name != null)
             .Subscribe(name =>
             {

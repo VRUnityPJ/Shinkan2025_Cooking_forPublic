@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using System;
 
 public interface IRecipeObservable
 {
-    public IReadOnlyReactiveProperty<string> FinishedRecipeName { get; }
+    public IObservable<string> RecipeName { get; }
+
 }

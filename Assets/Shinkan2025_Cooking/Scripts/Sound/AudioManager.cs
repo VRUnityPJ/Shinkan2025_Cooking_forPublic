@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
         _progressIndicatable.OnStartGame
             .Subscribe(_ => _audioSource.Play()).AddTo(this);
 
-        _recipeObservable.FinishedRecipeName
+        _recipeObservable.RecipeName
              .Subscribe(_ => OnPlaySound());
     }
 
