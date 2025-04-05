@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2053597972029219374}
   - component: {fileID: 5877280725698311726}
   - component: {fileID: 3324170856221656816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u5186\u67F1.002"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3497173847299947895}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 3.7868216}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6175632185198667584}
   - component: {fileID: 8154718795076720528}
   - component: {fileID: 2916712874514139855}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u7403.001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 4815107061793382958}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 3.8299446}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 92.9181, y: 92.9181, z: 92.9181}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3620374647090866101}
   - component: {fileID: 692679165071383480}
   - component: {fileID: 4300866950647678066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u751F\u30C8\u30DE\u30C8\u4E32"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1a3c887d79b4f4cac12a1c8669bc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodSpeedPower_x: 0.8
+  foodSpeedPower_y: 2
 --- !u!54 &3620374647090866101
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -298,4 +300,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 3.83}
+  m_Center: {x: 0, y: 0, z: 0}
