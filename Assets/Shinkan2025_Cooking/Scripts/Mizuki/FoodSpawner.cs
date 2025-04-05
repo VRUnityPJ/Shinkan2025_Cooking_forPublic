@@ -102,4 +102,8 @@ public class FoodSpawner : MonoBehaviour
         nextFoodSpawnTime = UnityEngine.Random.Range(2.5f, 5.0f);
 
     }
+    public void StopInstansiateFood()
+    {
+        isFoodSpawnable = false;
+    }
 }
