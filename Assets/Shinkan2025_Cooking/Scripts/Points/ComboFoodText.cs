@@ -24,7 +24,6 @@ public class ComboFoodText : MonoBehaviour
     [ContextMenu("TestAnimation")]
     private void TextAnimation()
     {
-        //_comboText.DOFade(0f, 0);
         _comboText.DOFade(1f,1f);
         _comboText.rectTransform.localScale = Vector3.one * 0.2f;
         _comboText.rectTransform.DOScale(1f, 0.6f)
