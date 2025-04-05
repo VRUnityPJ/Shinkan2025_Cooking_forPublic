@@ -1987,7 +1987,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -1728013695380148634, guid: e3e8dae31d1c0764698bf86cff6078d7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1236981302}
   m_SourcePrefab: {fileID: -3956505258223990651, guid: e3e8dae31d1c0764698bf86cff6078d7,
     type: 3}
 --- !u!4 &589291219 stripped
@@ -2039,6 +2043,11 @@ MonoBehaviour:
   - {fileID: 1430156816}
   - {fileID: 1397347600}
   foodLifeTime: 10
+  _directors:
+  - {fileID: 1684039809}
+  - {fileID: 1104200685}
+  - {fileID: 1236981302}
+  _time: 1
   isFoodSpawnable: 0
 --- !u!4 &621479432
 Transform:
@@ -3889,7 +3898,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: e9cc8877d7e65472381b426f205720dc, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -3971,8 +3980,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'COMBO:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa4b007d32d4363418ac5e54e65966d2, type: 2}
+  m_sharedMaterial: {fileID: -3759584871024854296, guid: fa4b007d32d4363418ac5e54e65966d2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4397,6 +4407,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 589291218}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1236981300 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4870552773557632513, guid: e3e8dae31d1c0764698bf86cff6078d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 589291218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!320 &1236981302
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236981298}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: e9cc8877d7e65472381b426f205720dc, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -519764112780353732, guid: e9cc8877d7e65472381b426f205720dc, type: 2}
+    value: {fileID: 1236981300}
+  - key: {fileID: -4925631543101924513, guid: e9cc8877d7e65472381b426f205720dc, type: 2}
+    value: {fileID: 1236981300}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1263633950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5617,7 +5654,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -1728013695380148634, guid: c551b1c9b262e7949b549bcff524f689,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1684039809}
   m_SourcePrefab: {fileID: -3956505258223990651, guid: c551b1c9b262e7949b549bcff524f689,
     type: 3}
 --- !u!4 &1684039805 stripped
@@ -5626,6 +5667,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1684039804}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1684039807 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4870552773557632513, guid: c551b1c9b262e7949b549bcff524f689,
+    type: 3}
+  m_PrefabInstance: {fileID: 1684039804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!320 &1684039809
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615520066}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: e9cc8877d7e65472381b426f205720dc, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -519764112780353732, guid: e9cc8877d7e65472381b426f205720dc, type: 2}
+    value: {fileID: 1684039807}
+  - key: {fileID: -4925631543101924513, guid: e9cc8877d7e65472381b426f205720dc, type: 2}
+    value: {fileID: 1684039807}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1729636036
 PrefabInstance:
   m_ObjectHideFlags: 0
