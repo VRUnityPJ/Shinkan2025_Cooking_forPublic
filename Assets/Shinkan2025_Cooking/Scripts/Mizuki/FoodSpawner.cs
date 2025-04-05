@@ -18,7 +18,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private List<PlayableDirector> _directors;
     [SerializeField] private float _time = 0.9f;
     
-    private GameObject food;
+    //private GameObject food;
     private float time = 0.0f;
     private float nextFoodSpawnTime = 1.0f;
     public bool isFoodSpawnable  = false;
@@ -83,31 +83,23 @@ public class FoodSpawner : MonoBehaviour
         }
     }
     public async void InstantiateFoodAsync(CancellationToken token,int spawnPointNum)
-        {
+    {
             await UniTask.Delay(TimeSpan.FromSeconds(_time), cancellationToken: token);
             Transform randomSpawnPoint = spawnPoints[spawnPointNum];
+
+            int index = UnityEngine.Random.Range(0, foodObjList.foodList.Count);
+            var food = foodObjList.foodList[index];
 
             GameObject spawnedFood = Instantiate(food, randomSpawnPoint);
             spawnedFood.TryGetComponent<IFoodPhysicsHandler>(out var handler);
             handler.OnInstantiate(foodSpeed, foodLifeTime);
             Debug.Log("timeゲーム終了");
-        }
-    private void InstantiateFood(int spawnPointNum)
-    {
-        
-        // �����_���ȃX�|�[���|�C���g��I��
-        Transform randomSpawnPoint = spawnPoints[spawnPointNum];
-
-        GameObject spawnedFood = Instantiate(food, randomSpawnPoint);
-        spawnedFood.TryGetComponent<IFoodPhysicsHandler>(out var handler);
-        handler.OnInstantiate(foodSpeed, foodLifeTime);
     }
+  
 
     private void NextFood()
     {
         nextFoodSpawnTime = UnityEngine.Random.Range(2.5f, 5.0f);
-        //foodSpeed = Random.Range(5.0f, 10.0f);
-        int index = UnityEngine.Random.Range(0, foodObjList.foodList.Count);
-        food = foodObjList.foodList[index];
+
     }
 }

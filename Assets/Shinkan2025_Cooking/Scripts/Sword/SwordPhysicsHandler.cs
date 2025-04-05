@@ -68,8 +68,8 @@ public class SwordPhysicsHandler : MonoBehaviour,ISwordPhysicsHandler
                 var parentLossyScale = _foodParentPoint[i].transform.localScale;
                 Debug.Log($"{new Vector3(parentLossyScale.x, parentLossyScale.y, parentLossyScale.z)}だよ"+i);
 
-                foodObj.transform.localScale
-                    = new Vector3(parentLossyScale.x * 15, parentLossyScale.y * 15, parentLossyScale.z * 15);
+                foodObj.transform.localScale *= 0.4f;
+                    //= new Vector3(parentLossyScale.x * 15, parentLossyScale.y * 15, parentLossyScale.z * 15);
 
                 _isStabbed.OnNext(Unit.Default);
 
