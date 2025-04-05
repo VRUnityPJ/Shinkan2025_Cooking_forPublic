@@ -34,6 +34,7 @@ public class PointPresenter : MonoBehaviour
             .AddTo(this);
         _pointHolder.UPPoint
             .Skip(1)
+            .Where(upPoint=>upPoint!=0)
             .Subscribe(upPoint =>
             {
                 _recipePointList.Add(upPoint);
@@ -42,6 +43,7 @@ public class PointPresenter : MonoBehaviour
 
         _recipeChecker.FinishedRecipeName
             .Skip(1)
+            .Where(r_name=>r_name!=null)
             .Subscribe(r_name =>
             {
                 _recipeNameList.Add(r_name);
