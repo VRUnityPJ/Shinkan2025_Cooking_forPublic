@@ -1,11 +1,11 @@
 using Ranking.Scripts;
 using Ranking.Scripts.Interface;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 namespace Shinkan2025_Cooking.Scripts.Points
 {
@@ -20,9 +20,10 @@ namespace Shinkan2025_Cooking.Scripts.Points
         [SerializeField]FoodRecipeListSO foodRecipeListSO;
 
         public static RecipeChecker Instance;
-        public IReadOnlyReactiveProperty<string> FinishedRecipeName => _finishedFoodName;
+        public IObservable<string> RecipeName => _recipeName;
 
-        private readonly StringReactiveProperty _finishedFoodName = new();
+        private readonly Subject<string> _recipeName = new();
+
         private int _recipePoint;
         
         void Start()
@@ -58,7 +59,8 @@ namespace Shinkan2025_Cooking.Scripts.Points
 
         public void RegisterRecipeName(string recipeName)
         {
-            _finishedFoodName.Value = recipeName;
+
+            _recipeName.OnNext(recipeName);
             Debug.Log(recipeName);
         }
     }
