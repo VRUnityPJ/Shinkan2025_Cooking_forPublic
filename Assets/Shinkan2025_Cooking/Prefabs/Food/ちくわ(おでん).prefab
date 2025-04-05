@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 549146770227667696}
   - component: {fileID: -171674029960225550}
   - component: {fileID: -8024220984641219449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u3061\u304F\u308F(\u304A\u3067\u3093)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1a3c887d79b4f4cac12a1c8669bc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodSpeedPower_x: 0.8
+  foodSpeedPower_y: 2
 --- !u!54 &-171674029960225550
 Rigidbody:
   m_ObjectHideFlags: 0
