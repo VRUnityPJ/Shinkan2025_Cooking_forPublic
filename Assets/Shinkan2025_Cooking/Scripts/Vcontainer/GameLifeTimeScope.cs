@@ -13,12 +13,14 @@ public class GameLifeTimeScope : LifetimeScope
     [SerializeField] private HogeSwordSpawner _swordSpawner;
     [SerializeField] private ComboPresenter _comboPresenter;
     [SerializeField] private PointHolder _pointHolder;
+
     protected override void Configure(IContainerBuilder builder)
     {
         RegisterCompenentInHierarchy<GameProgressStateController>(builder);
 
         builder.RegisterComponentInHierarchy<RecipeChecker>()
           .As<IRecipeObservable>();
+        builder.RegisterComponentInHierarchy<AudioManager>();
 
         //Inject先のクラスのインスタンス登録
         builder.RegisterComponent(_swordSpawner);
