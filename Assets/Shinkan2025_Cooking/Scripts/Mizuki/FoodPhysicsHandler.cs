@@ -40,7 +40,7 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
         {
             
             foodLifeTime -= Time.deltaTime;
-
+            _time += Time.deltaTime;
             if (isStabbed == false)
             {
                 //XZは少しずつ近づく
@@ -68,21 +68,21 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
 
         private void FoodMovement()
         {
-            float vsin = _maxTime * gravity.y / 2;
+            float vsin = _maxTime * -gravity.y / 2;
             Vector3 playerPos = player.transform.position;
             Vector3 pos = this.transform.position;
-            Vector3 dir = (playerPos - pos).normalized;
+            Vector3 dir = (new Vector3(playerPos.x, 0, playerPos.z) - new Vector3(pos.x, 0, pos.z)).normalized;
             float x = pos.x;
             float y = pos.y;
             float z = pos.z;
-            float distance = (playerPos - pos).magnitude;
-            
-            if (_time > _maxTime) return;
-            
-            _time += Time.deltaTime;
-            x = distance * (_time / _maxTime) * dir.x;
-            y = vsin * (_time / _maxTime) - gravity.y * Mathf.Pow(_time / _maxTime, 2) / 2;
-            z = distance * (_time / _maxTime) * dir.z;
+            float distance = (new Vector3(playerPos.x, 0, playerPos.z) - new Vector3(pos.x, 0, pos.z)).magnitude;
+
+            if (_time < _maxTime)
+            { ;
+                x = (playerPos.x - pos.x) * (_time / _maxTime) ;
+                z = (playerPos.z - pos.z) * (_time / _maxTime) ;
+            }
+            y = ((vsin * _time) - (-gravity.y * Mathf.Pow(_time, 2) / 2)) + 1;
             transform.position = new Vector3(x, y, z);
         }
     }
