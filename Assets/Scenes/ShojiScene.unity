@@ -1383,7 +1383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &567074603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5369,6 +5369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510937076142378122, guid: faa0854cd96db324c962a96be2921778,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8898106651058107245, guid: faa0854cd96db324c962a96be2921778,
         type: 3}

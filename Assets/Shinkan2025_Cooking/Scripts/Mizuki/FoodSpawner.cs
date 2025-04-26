@@ -50,6 +50,7 @@ public class FoodSpawner : MonoBehaviour
     private void SpawnFood()
     {
         time += Time.deltaTime;
+        //tagで検索落ちる点を求める
         if (time >= nextFoodSpawnTime)
         {
             _token = this.GetCancellationTokenOnDestroy();
