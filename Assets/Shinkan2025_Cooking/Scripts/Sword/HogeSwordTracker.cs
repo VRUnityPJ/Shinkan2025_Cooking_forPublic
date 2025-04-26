@@ -5,6 +5,7 @@ using UniRx;
 using System;
 using Cysharp.Threading.Tasks;
 using Shinkan2025_Cooking.Scripts.Points;
+using Shinkan2025_Cooking.Scripts.Sword;
 public class HogeSwordTracker : MonoBehaviour, ISwordTracker
 {
 
@@ -28,10 +29,11 @@ public class HogeSwordTracker : MonoBehaviour, ISwordTracker
                 {
                     RecipeChecker.Instance?.RecipeCheck(_foodChildrenName);
 
-                    swordPhysicsHandler.OnCompletedFood();    
+                    swordPhysicsHandler.OnCompletedFood();   
                     _swordFullStabbEvent.OnNext(Unit.Default);
                     _foodChildrenName.Clear();   
                     count = 0;
+                    
                 }
             })
             .AddTo(this);
