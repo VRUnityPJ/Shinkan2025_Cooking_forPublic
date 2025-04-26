@@ -24,15 +24,17 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
         public void OnInstantiate(float foodSpeed, float foodLifeTime)
         {
             this.foodLifeTime = foodLifeTime;
-            
+            Vector3 pos = transform.position;
+            Vector3 playerPos = player.transform.position;
+            float distance = (new Vector3(playerPos.x, 0, playerPos.z) - new Vector3(pos.x, 0, pos.z)).magnitude;
             if (_rb != null)
             {
                 //yのみAddforce
                 //FoodSpeedから落ちる時間を計算してなんかの変数に格納
-                /*var localPosX = transform.right;
+                var localPosX = transform.right;
                 var localPosY = transform.up;
-                var vector = (localPosX * foodSpeedPower_x + localPosY * foodSpeedPower_y) * foodSpeed;
-                _rb.AddForce(vector, ForceMode.Impulse);*/
+                var vector = (new Vector3((playerPos.x - pos.x)*3,  Mathf.Pow(distance/5, 2)* 4, (playerPos.z - pos.z)*3)).normalized * foodSpeed;
+                _rb.AddForce(vector, ForceMode.Impulse);
             }
         }
 
@@ -45,7 +47,7 @@ namespace Shinkan2025_Cooking.Scripts.Mizuki
             {
                 //XZは少しずつ近づく
                 //XZの移動距離は生成された点と終点の距離/落ちるまでの時間
-                FoodMovement();
+                //FoodMovement();
                 if (foodLifeTime <= 0)
                 {
                     OnTimeOut();
